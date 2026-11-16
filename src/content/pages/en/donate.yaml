@@ -1,0 +1,29 @@
+title: "Support Instituto Levante"
+intro: "Join our network of solidarity. Every contribution ensures that children in Rio de Janeiro have access to athletic training, daily nutrition, library books, and transformative cultural experiences."
+
+pix:
+  title: "Direct Contribution via Brazilian PIX"
+  body: "For supporters with Brazilian bank accounts, PIX is the fastest, fee-free method. Scan the QR code with your mobile banking app or copy the key below."
+  securityNote: "Always verify the receiver name INSTITUTO LEVANTE before finalizing the transaction."
+
+crowdfunding:
+  title: "Crowdfunding Campaigns"
+  body: "We periodically launch crowdfunding campaigns on platforms such as Benfeitoria or Vakinha for special milestones and equipment upgrades."
+  buttonLabel: "View Campaign"
+
+international:
+  badge: "International Donors & Foundations"
+  title: "Donating from Outside Brazil?"
+  body: "If you are an international donor, family foundation, or global philanthropic fund seeking to support youth empowerment in Brazil, we facilitate direct international wire transfers (SWIFT/IBAN), grant agreements, and bilingual fiscal documentation."
+  ctaLabel: "Contact Global Partnerships"
+  ctaHref: "/en/contact/"
+
+impact:
+  - amount: "$10 / R$ 50"
+    description: "Provides wholesome post-training meals and fresh fruit for a student for two full weeks."
+  - amount: "$25 / R$ 125"
+    description: "Funds new children's and young adult literature for our beach lending library."
+  - amount: "$50 / R$ 250"
+    description: "Covers round-trip transit and cultural admission for two students to attend a live theater performance."
+  - amount: "$100 / R$ 500"
+    description: "Supplies official beach volleyballs, training nets, and protective gear for a full youth squad."

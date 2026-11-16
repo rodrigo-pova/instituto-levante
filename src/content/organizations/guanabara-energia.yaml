@@ -1,0 +1,7 @@
+name: "Guanabara Energia"
+logo: "/uploads/logos/guanabara-energia.svg"
+url: "https://example.com"
+category: "sponsor"
+tier: "mantenedor"
+active: true
+order: 1

@@ -1,0 +1,69 @@
+hero:
+  badge: "Esporte, Leitura & Cidadania"
+  title: "Transformando vidas na areia e além da praia"
+  subtitle: "O Instituto Levante oferece aulas gratuitas de vôlei de praia duas vezes por semana, com alimentação nutritiva em cada treino, biblioteca comunitária e vivências culturais para crianças e jovens."
+  image: "/uploads/hero-beach-volleyball.jpg"
+  cta:
+    label: "Conheça Nosso Trabalho"
+    href: "/sobre/"
+  secondaryCta:
+    label: "Apoie o Levante"
+    href: "/doe/"
+
+mission:
+  tag: "Nossa Missão"
+  title: "Mais do que um projeto esportivo, um espaço de acolhimento e futuro"
+  body: "Acreditamos no esporte como ferramenta viva de transformação social. Na praia, desenvolvemos disciplina, trabalho em equipe e saúde. Fora da quadra, garantimos segurança alimentar com refeições a cada treino, incentivamos a imaginação através dos livros da nossa biblioteca e abrimos portas para a cidade com idas a teatros e eventos culturais."
+
+pillars:
+  - icon: "volleyball"
+    title: "Vôlei de Praia (2x/semana)"
+    description: "Treinos semanais de alta qualidade com professores dedicados, ensinando fundamentos técnicos, cooperação e respeito na areia."
+    highlight: "Terças e Quintas"
+  - icon: "utensils"
+    title: "Alimentação em Todo Encontro"
+    description: "Nenhum aluno treina com fome. Ao término de cada atividade, oferecemos refeições nutritivas e balanceadas para apoiar o desenvolvimento físico e cognitivo."
+    highlight: "100% dos Treinos"
+  - icon: "book-open"
+    title: "Biblioteca Comunitária"
+    description: "Acervo de livros infantojuvenis com empréstimos livres e momentos de leitura compartilhada antes e depois dos treinos."
+    highlight: "+500 Livros"
+  - icon: "ticket"
+    title: "Cultura e Teatro"
+    description: "Parcerias com companhias teatrais, cinemas e museus para levar os alunos e suas famílias a experiências culturais inesquecíveis."
+    highlight: "Idas ao Teatro"
+
+stats:
+  - value: "4+"
+    label: "Anos de história na praia"
+    sublabel: "Desde a fundação"
+  - value: "120+"
+    label: "Crianças e jovens atendidos"
+    sublabel: "Turmas ativas"
+  - value: "10.000+"
+    label: "Refeições e lanches servidos"
+    sublabel: "Segurança alimentar"
+  - value: "100%"
+    label: "Acesso gratuito e comunitário"
+    sublabel: "Sem custos para as famílias"
+
+alumniCallout:
+  badge: "Histórias do Levante"
+  title: "Da areia para a equipe: o ciclo que se completa"
+  story: "Nosso maior orgulho é ver ex-alunos que cresceram nas nossas turmas se tornando monitores e educadores do instituto. Quem um dia recebeu apoio hoje inspira a próxima geração de atletas e cidadãos."
+  cta:
+    label: "Conheça Nossa Equipe"
+    href: "/equipe/"
+
+sponsorBand:
+  title: "Empresas e instituições que acreditam no Levante"
+  cta:
+    label: "Seja um Patrocinador"
+    href: "/parceiros/"
+
+donateBand:
+  title: "Ajude a manter nossas redes de pé e nossos lanches na mesa"
+  body: "Sua contribuição direta garante transporte, bolas, manutenção da biblioteca e alimentação saudável para mais de 100 alunos."
+  cta:
+    label: "Fazer uma Doação"
+    href: "/doe/"

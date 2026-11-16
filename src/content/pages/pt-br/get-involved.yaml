@@ -1,0 +1,24 @@
+title: "Participe do Instituto Levante"
+intro: "Existem muitas maneiras de somar forças com o nosso projeto — do voluntariado à doação de livros e convites culturais."
+
+ways:
+  - title: "Voluntariado Esportivo & Educacional"
+    description: "Se você é profissional ou estudante de Educação Física, Pedagogia, Psicologia ou Nutrição, venha atuar voluntariamente nas nossas aulas na areia ou nos círculos de leitura."
+    cta:
+      label: "Quero Ser Voluntário"
+      href: "/contato/"
+  - title: "Doe Livros para a Biblioteca"
+    description: "Recebemos doações contínuas de livros infantis, juvenis, gibis e literatura geral em bom estado para abastecer nossa biblioteca comunitária."
+    cta:
+      label: "Como Doar Livros"
+      href: "/contato/"
+  - title: "Parcerias de Cultura & Teatro"
+    description: "Você representa um teatro, museu, companhia artística ou sala de cinema? Convide nossas turmas para vivências e espetáculos gratuitos!"
+    cta:
+      label: "Convidar o Levante"
+      href: "/contato/"
+  - title: "Apoio Financeiro Individual ou Empresarial"
+    description: "Contribua via PIX ou junte sua empresa como patrocinadora oficial do instituto através de cotas diretas ou leis de incentivo."
+    cta:
+      label: "Conhecer Formas de Apoio"
+      href: "/parceiros/"

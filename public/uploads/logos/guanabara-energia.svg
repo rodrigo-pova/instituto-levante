@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="8" fill="#1e2428"/>
+  <circle cx="35" cy="30" r="14" fill="#5bc6b5"/>
+  <text x="60" y="36" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="700" font-size="14">GUANABARA</text>
+  <text x="60" y="48" fill="#5bc6b5" font-family="system-ui, sans-serif" font-weight="500" font-size="10">ENERGIA</text>
+</svg>

@@ -1,0 +1,22 @@
+title: "Transparency & Governance"
+intro: "Open, ethical, and publicly accessible accountability. We believe trust with our donors, families, and community is forged through rigorous governance and clarity."
+
+governanceNotes: "Instituto Levante is a registered non-profit organization in Brazil, with official bylaws on file, active federal tax registration (CNPJ), and regular compliance reporting to Brazilian oversight authorities."
+
+reports:
+  - year: 2024
+    title: "Annual Activity Report & Financial Statements 2024"
+    category: "Management Report"
+    file: "/uploads/docs/relatorio-anual-2024.pdf"
+  - year: 2023
+    title: "Annual Social Impact & Activity Statement 2023"
+    category: "Management Report"
+    file: "/uploads/docs/relatorio-anual-2023.pdf"
+  - year: 2024
+    title: "Official Institutional Bylaws (Estatuto Social)"
+    category: "Governance"
+    file: "/uploads/docs/estatuto-social-instituto-levante.pdf"
+  - year: 2024
+    title: "Tax Regularity & Legal Compliance Certificate"
+    category: "Certificates"
+    file: "/uploads/docs/certidao-regularidade-fiscal.pdf"

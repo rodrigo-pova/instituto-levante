@@ -1,0 +1,69 @@
+hero:
+  badge: "Sports, Literacy & Citizenship"
+  title: "Transforming lives on the sand and beyond the beach"
+  subtitle: "Instituto Levante provides free beach volleyball classes twice a week, along with nutritious meals at every session, a community library, and cultural field trips for children and youth."
+  image: "/uploads/hero-beach-volleyball.jpg"
+  cta:
+    label: "Discover Our Work"
+    href: "/en/about/"
+  secondaryCta:
+    label: "Support Levante"
+    href: "/en/donate/"
+
+mission:
+  tag: "Our Mission"
+  title: "More than a sports initiative — a space for care, dignity, and future opportunities"
+  body: "We believe sport is a living catalyst for social transformation. On the sand, we foster discipline, teamwork, and healthy habits. Off the court, we ensure food security with meals at every practice, nurture imagination through our library books, and connect students to their city through theater and museum outings."
+
+pillars:
+  - icon: "volleyball"
+    title: "Beach Volleyball (2x/week)"
+    description: "High-quality weekly practices with committed educators, teaching athletic fundamentals, cooperation, and respect on the sand."
+    highlight: "Tuesdays & Thursdays"
+  - icon: "utensils"
+    title: "Meals at Every Class"
+    description: "No child trains hungry. After every practice, we serve wholesome, balanced meals to support physical growth and cognitive well-being."
+    highlight: "100% of Sessions"
+  - icon: "book-open"
+    title: "Community Library"
+    description: "A growing collection of children's and young adult books with open borrowing and shared reading circles before and after practice."
+    highlight: "500+ Books"
+  - icon: "ticket"
+    title: "Arts & Theater Outings"
+    description: "Partnerships with theater companies, cinemas, and cultural venues bringing students and their families to inspiring performances."
+    highlight: "Theater Outings"
+
+stats:
+  - value: "4+"
+    label: "Years of impact on the beach"
+    sublabel: "Since inception"
+  - value: "120+"
+    label: "Children & youth empowered"
+    sublabel: "Active rosters"
+  - value: "10,000+"
+    label: "Nutritious meals served"
+    sublabel: "Food security"
+  - value: "100%"
+    label: "Tuition-free community access"
+    sublabel: "Zero cost for families"
+
+alumniCallout:
+  badge: "Levante Stories"
+  title: "From the sand to the coaching staff: closing the circle"
+  story: "Our proudest milestone is seeing alumni who grew up in our classes return as youth tutors and staff members. Those who once received encouragement are now leading and inspiring the next generation."
+  cta:
+    label: "Meet Our Team"
+    href: "/en/team/"
+
+sponsorBand:
+  title: "Companies and organizations partnering with Levante"
+  cta:
+    label: "Become a Partner"
+    href: "/en/partners/"
+
+donateBand:
+  title: "Help keep our volleyball nets standing and healthy meals on the table"
+  body: "Your support directly funds nutritious food, balls, library books, and cultural transport for over 100 students every week."
+  cta:
+    label: "Make a Donation"
+    href: "/en/donate/"

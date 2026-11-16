@@ -1,0 +1,22 @@
+title: "Transparência e Governança"
+intro: "Prestação de contas clara, ética e aberta a toda a sociedade. Acreditamos que a confiança dos nossos parceiros, famílias e comunidade se constrói com rigor e transparência."
+
+governanceNotes: "O Instituto Levante é uma organização sem fins lucrativos legalmente constituída no Brasil, com estatuto social registrado, CNPJ ativo e prestação periódica de contas aos órgãos competentes."
+
+reports:
+  - year: 2024
+    title: "Relatório Anual de Atividades e Demonstrações Financeiras 2024"
+    category: "Relatório de Gestão"
+    file: "/uploads/docs/relatorio-anual-2024.pdf"
+  - year: 2023
+    title: "Relatório Anual de Atividades e Impacto Social 2023"
+    category: "Relatório de Gestão"
+    file: "/uploads/docs/relatorio-anual-2023.pdf"
+  - year: 2024
+    title: "Estatuto Social do Instituto Levante"
+    category: "Governança"
+    file: "/uploads/docs/estatuto-social-instituto-levante.pdf"
+  - year: 2024
+    title: "Certidão de Regularidade Fiscal e Cadastral"
+    category: "Certidões"
+    file: "/uploads/docs/certidao-regularidade-fiscal.pdf"

@@ -1,0 +1,94 @@
+hero:
+  badge: "Parcerias de Impacto"
+  title: "Invista no futuro de crianças e jovens através do esporte e da cultura"
+  subtitle: "Sua empresa pode transformar vidas no Rio de Janeiro apoiando um projeto estruturado, auditável e com impacto social mensurável — incluindo incentivos fiscais via Lei do Esporte."
+  primaryCta:
+    label: "Apresentar uma Proposta"
+    href: "#formulario-parceria"
+  mediaKitPdf:
+    label: "Baixar Mídia Kit (PDF)"
+    file: "/uploads/docs/midia-kit-instituto-levante.pdf"
+
+whyPartner:
+  title: "Por que investir no Instituto Levante?"
+  intro: "Conecte a marca da sua empresa a um projeto sério, transparente e profundamente integrado à comunidade."
+  items:
+    - title: "Impacto Social Comprovado & Direto"
+      body: "Seu investimento chega diretamente na areia: alimentação equilibrada em 100% dos treinos, materiais esportivos oficiais e acesso cultural contínuo."
+    - title: "Alinhamento com Metas ESG & ODS"
+      body: "Apoie diretamente os Objetivos de Desenvolvimento Sustentável da ONU: Saúde e Bem-Estar (ODS 3), Educação de Qualidade (ODS 4) e Redução das Desigualdades (ODS 10)."
+    - title: "Visibilidade e Associação de Marca Positiva"
+      body: "Presença em uniformes de treino, placas na praia, eventos abertos à comunidade, redes sociais e relatórios anuais de sustentabilidade."
+    - title: "Governança Ética e Prestação de Contas"
+      body: "Contabilidade transparente, relatórios de atividades semestrais e auditoria aberta para parceiros institucionais."
+
+incentiveFocus:
+  badge: "Incentivo Fiscal (Lucro Real)"
+  title: "Patrocine com 100% de dedução fiscal via Lei de Incentivo ao Esporte"
+  body: "A Lei Federal nº 11.438/2006 permite que pessoas jurídicas tributadas com base no Lucro Real destinem até 2% do seu Imposto de Renda devido para projetos esportivos aprovados pelo Ministério do Esporte, sem nenhum custo adicional para a empresa."
+  steps:
+    - number: "01"
+      title: "Simulação do Imposto"
+      description: "Sua equipe contábil ou fiscal calcula o potencial de direcionamento de até 2% do IRPJ devido do exercício fiscal."
+    - number: "02"
+      title: "Depósito Direto na Conta Vinculada"
+      description: "O aporte é feito diretamente na conta bancária do projeto, aberta no Banco do Brasil e monitorada pelo Ministério do Esporte."
+    - number: "03"
+      title: "Emissão do Recibo de Mecenato"
+      description: "O Instituto emite o comprovante oficial para que sua empresa realize a dedução integral na declaração de IRPJ."
+    - number: "04"
+      title: "Acompanhamento & Relatórios"
+      description: "Sua empresa recebe relatórios fotográficos periódicos, convites para vivências e prestação de contas detalhada."
+  callout: "Tem dúvidas sobre o cálculo ou enquadramento fiscal? Nossa equipe jurídica e de captação elabora simulações sob medida para o seu time tributário."
+
+tiers:
+  - key: "mantenedor"
+    name: "Cota Mantenedor"
+    price: ""
+    highlighted: true
+    benefits:
+      - "Logotipo master em destaque nos uniformes de todos os alunos e professores"
+      - "Placa institucional exclusiva na estrutura dos treinos na praia"
+      - "Menção destacada em todos os comunicados à imprensa e redes sociais"
+      - "Direito a realizar 2 vivências esportivas corporativas exclusivas para colaboradores"
+      - "Relatório trimestral personalizado de impacto e indicadores ESG"
+  - key: "ouro"
+    name: "Cota Ouro"
+    price: ""
+    highlighted: false
+    benefits:
+      - "Logotipo nas costas dos uniformes de treino"
+      - "Banner de parceiro durante eventos e torneios anuais"
+      - "Post dedicado nos canais digitais do instituto e inclusão no site oficial"
+      - "Relatório semestral de prestação de contas e métricas sociais"
+  - key: "prata"
+    name: "Cota Prata"
+    price: ""
+    highlighted: false
+    benefits:
+      - "Logotipo na manga dos uniformes e na página oficial de parceiros"
+      - "Apoio direcionado para aquisição de livros da biblioteca ou alimentação"
+      - "Certificado de Responsabilidade Social e relatório anual de impacto"
+  - key: "apoiador"
+    name: "Cota Apoiador"
+    price: ""
+    highlighted: false
+    benefits:
+      - "Nome e logotipo na seção de parceiros do site"
+      - "Reconhecimento público no Relatório Anual de Atividades"
+      - "Agradecimento nas redes sociais"
+
+partnerGroups:
+  sponsors: "Patrocinadores Corporativos"
+  institutional: "Parceiros Institucionais & Culturais"
+  supporters: "Apoiadores da Comunidade"
+
+testimonials:
+  - quote: "Acompanhar de perto a seriedade com que o Instituto Levante acolhe essas crianças nos deu total segurança para patrocinar via Lei de Incentivo. Ver os alunos lendo e almoçando juntos na praia não tem preço."
+    author: "Diretoria de Sustentabilidade"
+    role: "Empresa Parceira"
+    company: "Grupo Guanabara Energia"
+
+form:
+  title: "Vamos construir uma parceria juntos?"
+  intro: "Preencha os dados abaixo para receber nossa apresentação institucional detalhada ou agendar uma reunião com nossa diretoria."

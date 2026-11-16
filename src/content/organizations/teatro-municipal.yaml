@@ -1,0 +1,6 @@
+name: "Teatro Municipal do Rio"
+logo: "/uploads/logos/teatro-municipal.svg"
+url: "https://example.com"
+category: "institutional_partner"
+active: true
+order: 3

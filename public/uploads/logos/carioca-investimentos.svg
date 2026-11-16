@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="8" fill="#fdfbf7" stroke="#e5e7eb" stroke-width="2"/>
+  <polygon points="30,42 40,20 50,42" fill="#eb534a"/>
+  <text x="60" y="34" fill="#1e2428" font-family="system-ui, sans-serif" font-weight="700" font-size="13">CARIOCA</text>
+  <text x="60" y="47" fill="#6b7280" font-family="system-ui, sans-serif" font-size="10">INVESTIMENTOS</text>
+</svg>
