@@ -1,0 +1,136 @@
+---
+import CrowdfundingCard from '@/components/CrowdfundingCard.astro';
+import Hero from '@/components/Hero.astro';
+import InternationalDonateCard from '@/components/InternationalDonateCard.astro';
+import PixDonation from '@/components/PixDonation.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import { path } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('donate', locale);
+const data = pageEntry.data;
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={data.intro}
+  routeKey="donate"
+>
+  <Hero title={data.title} subtitle={data.intro} variant="coral" />
+
+  <!-- Primary Donation Options -->
+  <Section bg="white">
+    <div class="mx-auto max-w-5xl space-y-8">
+      <!-- PIX Block (Primary for Brazil) -->
+      <PixDonation
+        locale={locale}
+        title={data.pix.title}
+        body={data.pix.body}
+        securityNote={data.pix.securityNote}
+      />
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Optional Crowdfunding Card (Rendered only if settings.crowdfundingUrl is set) -->
+        {
+          data.crowdfunding && (
+            <CrowdfundingCard
+              title={data.crowdfunding.title}
+              body={data.crowdfunding.body}
+              buttonLabel={data.crowdfunding.buttonLabel}
+            />
+          )
+        }
+
+        <!-- International Donors & Grants Card -->
+        <div class="md:col-span-2">
+          <InternationalDonateCard
+            badge={data.international.badge}
+            title={data.international.title}
+            body={data.international.body}
+            ctaLabel={data.international.ctaLabel}
+            ctaHref={data.international.ctaHref}
+            highlighted={locale === 'en'}
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Impact Examples -->
+  <Section
+    tag={locale === 'pt-br' ? 'Impacto Direto' : 'Direct Impact'}
+    title={
+      locale === 'pt-br'
+        ? 'O que a sua doação torna possível'
+        : 'What your contribution makes possible'
+    }
+    bg="warm"
+  >
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        data.impact.map((item, idx) => {
+          const badgeColors = [
+            'bg-coral-500 text-white',
+            'bg-mint-400 text-ink',
+            'bg-sun-400 text-ink',
+            'bg-lilac-400 text-ink',
+          ];
+          return (
+            <div class="flex flex-col justify-between rounded-2xl border border-ink/10 bg-surface p-6 shadow-2xs">
+              <div>
+                <span
+                  class:list={[
+                    'inline-block rounded-xl px-3.5 py-1.5 text-lg font-extrabold',
+                    badgeColors[idx % badgeColors.length],
+                  ]}
+                >
+                  {item.amount}
+                </span>
+                <p class="mt-4 text-sm leading-relaxed text-ink-muted">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Corporate Sponsorship Cross-Link -->
+    <div class="mt-12 rounded-3xl border border-mint-400/40 bg-mint-50 p-6 text-center sm:p-8">
+      <h3 class="text-lg font-extrabold text-ink sm:text-xl">
+        {
+          locale === 'pt-br'
+            ? 'Representa uma empresa ou fundação?'
+            : 'Representing a corporation or philanthropic foundation?'
+        }
+      </h3>
+      <p class="mx-auto mt-2 max-w-2xl text-sm text-ink-muted">
+        {
+          locale === 'pt-br'
+            ? 'Conheça nossas cotas de patrocínio corporativo e saiba como direcionar até 2% do IRPJ devido via Lei de Incentivo ao Esporte.'
+            : 'Explore our corporate sponsorship tiers, ESG impact reporting, and tax-incentive mechanisms.'
+        }
+      </p>
+      <div class="mt-5">
+        <a
+          href={path('partners', locale)}
+          class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-6 py-3 text-xs font-extrabold text-white transition-colors hover:bg-coral-700"
+        >
+          <span>
+            {locale === 'pt-br' ? 'Ver Parcerias Corporativas' : 'Explore Corporate Partnerships'}
+          </span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

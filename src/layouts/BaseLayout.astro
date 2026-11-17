@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { bcp47, type Locale } from '@/i18n/config';
+import type { RouteKey } from '@/i18n/routes';
+import { getAlternates, useTranslations, type AlternateLink } from '@/i18n/utils';
+import Analytics from '@/components/Analytics.astro';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import SEO from '@/components/SEO.astro';
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  routeKey: RouteKey | 'post' | 'notFound';
+  slug?: string;
+  availableLocales?: Locale[];
+  alternates?: AlternateLink[];
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  routeKey,
+  slug,
+  availableLocales,
+  alternates: customAlternates,
+  image,
+  noindex = false,
+} = Astro.props;
+
+const t = useTranslations(locale);
+
+const alternates: AlternateLink[] =
+  customAlternates ??
+  (routeKey === 'notFound'
+    ? [
+        { locale: 'pt-br', href: '/', lang: 'pt-BR' },
+        { locale: 'en', href: '/en/', lang: 'en-US' },
+      ]
+    : getAlternates(routeKey, slug, availableLocales));
+---
+
+<!doctype html>
+<html lang={bcp47[locale]}>
+  <head>
+    <SEO
+      locale={locale}
+      title={title}
+      description={description}
+      alternates={alternates}
+      image={image}
+      noindex={noindex}
+    />
+    <Analytics />
+  </head>
+  <body class="flex min-h-screen flex-col bg-surface text-ink antialiased">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-sun-400 focus:px-4 focus:py-2 focus:text-sm focus:font-extrabold focus:text-ink focus:shadow-lg"
+    >
+      {t('nav.skipToContent')}
+    </a>
+
+    <Header locale={locale} routeKey={routeKey} alternates={alternates} />
+
+    <main id="content" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer locale={locale} />
+  </body>
+</html>

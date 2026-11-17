@@ -1,0 +1,181 @@
+---
+import type { Locale } from '@/i18n/config';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  intro: string;
+  tiers: Array<{ key: string; name: string }>;
+}
+
+const { locale, title, intro, tiers } = Astro.props;
+const t = useTranslations(locale);
+
+const interestOptions =
+  locale === 'pt-br'
+    ? [
+        'Patrocínio via Lei de Incentivo ao Esporte (Lucro Real)',
+        'Patrocínio Corporativo Direto (ESG / Marca)',
+        'Grant / Financiamento Filantrópico Internacional',
+        'Parceria Institucional ou Cultural (Teatro / Livros / Alimentação)',
+      ]
+    : [
+        'International Philanthropic Grant / Foundation Support',
+        'Direct Corporate Sponsorship (CSR / ESG)',
+        'Brazilian Sports Tax Incentive Law (Lei de Incentivo ao Esporte)',
+        'Institutional or Cultural Partnership',
+      ];
+---
+
+<div
+  id="formulario-parceria"
+  class="scroll-mt-24 rounded-3xl border-2 border-ink/10 bg-surface p-6 shadow-md sm:p-10"
+>
+  <div class="max-w-2xl">
+    <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      {title}
+    </h2>
+    <p class="mt-2.5 text-sm leading-relaxed text-ink-muted sm:text-base">
+      {intro}
+    </p>
+  </div>
+
+  <form
+    method="POST"
+    action="/api/forms/parcerias"
+    data-track="partner-lead-submit"
+    class="mt-8 space-y-5"
+  >
+    <input type="hidden" name="form-name" value="parcerias" />
+    <input type="hidden" name="locale" value={locale} />
+
+    <!-- Honeypot anti-spam field -->
+    <div class="hidden" aria-hidden="true">
+      <label>
+        {t('form.honeypot')}
+        <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="partner-company" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.company')} *
+        </label>
+        <input
+          id="partner-company"
+          name="company"
+          type="text"
+          required
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        />
+      </div>
+
+      <div>
+        <label for="partner-name" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.name')} *
+        </label>
+        <input
+          id="partner-name"
+          name="name"
+          type="text"
+          required
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        />
+      </div>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-3">
+      <div>
+        <label for="partner-role" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.role')}
+        </label>
+        <input
+          id="partner-role"
+          name="role"
+          type="text"
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        />
+      </div>
+
+      <div>
+        <label for="partner-email" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.email')} *
+        </label>
+        <input
+          id="partner-email"
+          name="email"
+          type="email"
+          required
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        />
+      </div>
+
+      <div>
+        <label for="partner-phone" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.phone')}
+        </label>
+        <input
+          id="partner-phone"
+          name="phone"
+          type="tel"
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        />
+      </div>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="partner-interest" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.interest')} *
+        </label>
+        <select
+          id="partner-interest"
+          name="interest"
+          required
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        >
+          {interestOptions.map((opt) => <option value={opt}>{opt}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label for="partner-tier" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+          {t('form.tierInterest')}
+        </label>
+        <select
+          id="partner-tier"
+          name="tier"
+          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        >
+          <option value="custom">
+            {locale === 'pt-br' ? 'Ainda não sei / Personalizada' : 'Undecided / Custom Proposal'}
+          </option>
+          {tiers.map((tier) => <option value={tier.key}>{tier.name}</option>)}
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="partner-message" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        {t('form.message')} *
+      </label>
+      <textarea
+        id="partner-message"
+        name="message"
+        rows="4"
+        required
+        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral-600 px-8 py-4 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-coral-700"
+    >
+      <span>{t('action.sendMessage')}</span>
+      <span aria-hidden="true">→</span>
+    </button>
+  </form>
+</div>

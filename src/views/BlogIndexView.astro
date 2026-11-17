@@ -1,0 +1,53 @@
+---
+import Hero from '@/components/Hero.astro';
+import PostCard from '@/components/PostCard.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import { useTranslations } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage, getPosts } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const pageEntry = await getPage('blogPage', locale);
+const data = pageEntry.data;
+const posts = await getPosts(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={data.intro}
+  routeKey="blog"
+>
+  <Hero title={data.title} subtitle={data.intro} variant="coral" />
+
+  <Section bg="white">
+    {
+      posts.length > 0 ? (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <PostCard
+              locale={locale}
+              slug={post.slug}
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              cover={post.data.cover}
+              coverAlt={post.data.coverAlt}
+              author={post.data.author}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-base font-medium text-ink-muted">
+          {t('blog.empty')}
+        </p>
+      )
+    }
+  </Section>
+</BaseLayout>

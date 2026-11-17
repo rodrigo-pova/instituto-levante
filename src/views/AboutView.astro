@@ -1,0 +1,127 @@
+---
+import Hero from '@/components/Hero.astro';
+import Markdown from '@/components/Markdown.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import { path } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('about', locale);
+const data = pageEntry.data;
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.hero.title}
+  description={data.hero.subtitle}
+  routeKey="about"
+  image={data.hero.image}
+>
+  <Hero
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    image={data.hero.image}
+    variant="coral"
+  />
+
+  <!-- History & Story -->
+  <Section bg="white">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+        {data.story.title}
+      </h2>
+      <div class="mt-6">
+        <Markdown content={data.story.body} />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Weekly Routine on the Beach -->
+  <Section
+    tag={locale === 'pt-br' ? 'Metodologia na Prática' : 'Our Methodology'}
+    title={data.routine.title}
+    intro={data.routine.intro}
+    bg="mint"
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        data.routine.steps.map((step, index) => (
+          <div class="flex flex-col justify-between rounded-2xl border border-mint-400/40 bg-surface p-6 shadow-xs">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-coral-500 text-xs font-extrabold text-white">
+                  0{index + 1}
+                </span>
+                {step.time && (
+                  <span class="rounded-full bg-mint-50 px-3 py-1 text-xs font-extrabold text-mint-800">
+                    {step.time}
+                  </span>
+                )}
+              </div>
+              <h3 class="mt-4 text-lg font-extrabold text-ink">{step.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Institutional Values -->
+  <Section
+    title={locale === 'pt-br' ? 'Nossos Valores' : 'Our Core Values'}
+    bg="white"
+  >
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        data.values.map((val, idx) => {
+          const borders = [
+            'border-l-coral-500',
+            'border-l-mint-400',
+            'border-l-sun-400',
+            'border-l-lilac-400',
+          ];
+          return (
+            <div
+              class:list={[
+                'rounded-2xl border border-ink/10 border-l-4 bg-surface-warm p-6',
+                borders[idx % borders.length],
+              ]}
+            >
+              <h3 class="text-lg font-extrabold text-ink">{val.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                {val.description}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <div class="mt-12 flex flex-wrap justify-center gap-4">
+      <a
+        href={path('team', locale)}
+        class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-coral-700"
+      >
+        <span>{locale === 'pt-br' ? 'Conheça Nossa Equipe' : 'Meet Our Team'}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a
+        href={path('transparency', locale)}
+        class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-surface px-6 py-3 text-sm font-extrabold text-ink transition-colors hover:bg-surface-warm"
+      >
+        <span>
+          {locale === 'pt-br' ? 'Relatórios de Transparência' : 'Transparency Reports'}
+        </span>
+      </a>
+    </div>
+  </Section>
+</BaseLayout>

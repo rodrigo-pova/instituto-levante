@@ -1,0 +1,39 @@
+---
+import { shouldIndex } from '@/lib/env';
+
+const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiSrc =
+  import.meta.env.PUBLIC_UMAMI_SRC || 'https://cloud.umami.is/script.js';
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const enableAnalytics = shouldIndex && Boolean(umamiId || plausibleDomain);
+---
+
+{
+  enableAnalytics && umamiId && (
+    <script is:inline defer src={umamiSrc} data-website-id={umamiId} />
+  )
+}
+{
+  enableAnalytics && plausibleDomain && (
+    <script
+      is:inline
+      defer
+      data-domain={plausibleDomain}
+      src="https://plausible.io/js/script.js"
+    />
+  )
+}
+
+<script is:inline>
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+    if (!target) return;
+    const name = target.getAttribute('data-track');
+    if (!name) return;
+    if (typeof window.umami?.track === 'function') {
+      window.umami.track(name);
+    } else if (typeof window.plausible === 'function') {
+      window.plausible(name);
+    }
+  });
+</script>

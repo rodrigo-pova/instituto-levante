@@ -1,0 +1,173 @@
+---
+import Hero from '@/components/Hero.astro';
+import IncentiveHighlight from '@/components/IncentiveHighlight.astro';
+import PartnerShowcase from '@/components/PartnerShowcase.astro';
+import PartnershipForm from '@/components/PartnershipForm.astro';
+import Section from '@/components/Section.astro';
+import TierCard from '@/components/TierCard.astro';
+import type { Locale } from '@/i18n/config';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getOrganizations, getPage } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('partners', locale);
+const data = pageEntry.data;
+const organizations = (await getOrganizations({ activeOnly: true })).map(
+  (o) => o.data,
+);
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.hero.title}
+  description={data.hero.subtitle}
+  routeKey="partners"
+>
+  <!-- 1. Hero with Media Kit PDF download -->
+  <Hero
+    badge={data.hero.badge}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    primaryCta={data.hero.primaryCta}
+    secondaryCta={
+      data.hero.mediaKitPdf
+        ? {
+            label: data.hero.mediaKitPdf.label,
+            href: data.hero.mediaKitPdf.file,
+            download: true,
+            track: 'media-kit-download',
+          }
+        : undefined
+    }
+    variant="coral"
+  />
+
+  <!-- 2. Why Partner / Sponsor -->
+  <Section
+    title={data.whyPartner.title}
+    intro={data.whyPartner.intro}
+    bg="white"
+  >
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        data.whyPartner.items.map((item, idx) => {
+          const accents = [
+            'border-t-coral-500',
+            'border-t-mint-400',
+            'border-t-sun-400',
+            'border-t-lilac-400',
+          ];
+          return (
+            <div
+              class:list={[
+                'rounded-2xl border border-ink/10 border-t-4 bg-surface-warm p-6 shadow-2xs',
+                accents[idx % accents.length],
+              ]}
+            >
+              <h3 class="text-lg font-extrabold text-ink">{item.title}</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-ink-muted">
+                {item.body}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <!-- 3. Flagship Mechanism: Lei de Incentivo ao Esporte (PT) / International Grants & Tax Incentives (EN) -->
+  <Section bg="white" class="py-6 sm:py-10">
+    <IncentiveHighlight
+      badge={data.incentiveFocus.badge}
+      title={data.incentiveFocus.title}
+      body={data.incentiveFocus.body}
+      steps={data.incentiveFocus.steps}
+      callout={data.incentiveFocus.callout}
+    />
+  </Section>
+
+  <!-- 4. Sponsorship Tiers -->
+  <Section
+    tag={locale === 'pt-br' ? 'Cotas de Patrocínio' : 'Sponsorship Tiers'}
+    title={
+      locale === 'pt-br'
+        ? 'Formatos de apoio para a sua organização'
+        : 'Partnership levels for your organization'
+    }
+    bg="warm"
+  >
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        data.tiers.map((tier) => (
+          <TierCard
+            locale={locale}
+            tierKey={tier.key}
+            name={tier.name}
+            price={tier.price}
+            benefits={tier.benefits}
+            highlighted={tier.highlighted}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- 5. Current Sponsors & Partners Showcase -->
+  {
+    organizations.length > 0 && (
+      <Section
+        title={
+          locale === 'pt-br'
+            ? 'Quem já constrói o Levante conosco'
+            : 'Organizations standing with Levante'
+        }
+        bg="white"
+      >
+        <PartnerShowcase
+          locale={locale}
+          organizations={organizations}
+          headings={data.partnerGroups}
+        />
+      </Section>
+    )
+  }
+
+  <!-- 6. Testimonials -->
+  {
+    data.testimonials && data.testimonials.length > 0 && (
+      <Section bg="lilac">
+        <div class="mx-auto max-w-3xl space-y-6">
+          {data.testimonials.map((tItem) => (
+            <blockquote class="rounded-3xl border border-lilac-400/40 bg-surface p-8 text-center shadow-xs">
+              <p class="text-lg font-semibold italic leading-relaxed text-ink">
+                “{tItem.quote}”
+              </p>
+              <footer class="mt-4">
+                <p class="text-sm font-extrabold text-ink">{tItem.author}</p>
+                <p class="text-xs font-semibold text-lilac-800">
+                  {[tItem.role, tItem.company].filter(Boolean).join(' • ')}
+                </p>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- 7. Corporate & Institutional Lead Form -->
+  <Section bg="warm">
+    <div class="mx-auto max-w-4xl">
+      <PartnershipForm
+        locale={locale}
+        title={data.form.title}
+        intro={data.form.intro}
+        tiers={data.tiers.map((t) => ({ key: t.key, name: t.name }))}
+      />
+    </div>
+  </Section>
+</BaseLayout>

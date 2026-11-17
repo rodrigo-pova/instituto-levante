@@ -1,27 +1,30 @@
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import type { Locale } from '@/i18n/config';
 import { splitId } from '@/i18n/utils';
 import type { OrgCategory, TierKey } from '@/content.config';
+
+export type PageCollectionKey =
+  | 'home'
+  | 'about'
+  | 'team'
+  | 'partners'
+  | 'donate'
+  | 'getInvolved'
+  | 'transparency'
+  | 'contactPage'
+  | 'blogPage';
 
 /**
  * Loads a singleton page entry for a specific locale.
  * Throws at build time if the entry is missing.
  */
-export async function getPage<
-  C extends
-    | 'home'
-    | 'about'
-    | 'team'
-    | 'partners'
-    | 'donate'
-    | 'getInvolved'
-    | 'transparency'
-    | 'contactPage'
-    | 'blogPage',
->(collection: C, locale: Locale) {
+export async function getPage<C extends PageCollectionKey>(
+  collection: C,
+  locale: Locale,
+): Promise<CollectionEntry<C>> {
   // Collection singletons are loaded with pattern `*/name.yaml`
   // so the entry id is `<locale>/<name>`
-  const fileMap: Record<string, string> = {
+  const fileMap: Record<PageCollectionKey, string> = {
     home: 'home',
     about: 'about',
     team: 'team',
@@ -34,7 +37,9 @@ export async function getPage<
   };
 
   const id = `${locale}/${fileMap[collection]}`;
-  const entry = await getEntry(collection as any, id);
+  const entry = (await getEntry(collection as 'home', id)) as
+    | CollectionEntry<C>
+    | undefined;
 
   if (!entry) {
     throw new Error(

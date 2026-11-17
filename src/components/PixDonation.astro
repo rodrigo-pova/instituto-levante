@@ -1,0 +1,165 @@
+---
+import QRCode from 'qrcode';
+import type { Locale } from '@/i18n/config';
+import { useTranslations } from '@/i18n/utils';
+import { buildPixPayload } from '@/lib/pix';
+import { settings } from '@/lib/settings';
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  body: string;
+  securityNote?: string;
+}
+
+const { locale, title, body, securityNote } = Astro.props;
+const t = useTranslations(locale);
+
+const pixPayload = buildPixPayload({
+  key: settings.pixKey,
+  name: settings.pixReceiverName,
+  city: settings.pixCity,
+});
+
+const hasCustomQr = Boolean(settings.pixQrImage && settings.pixQrImage.trim() !== '');
+const qrSvg = hasCustomQr
+  ? ''
+  : await QRCode.toString(pixPayload, {
+      type: 'svg',
+      errorCorrectionLevel: 'M',
+      margin: 1,
+      width: 220,
+      color: {
+        dark: '#1E2428',
+        light: '#FFFFFF',
+      },
+    });
+
+const keyTypeLabels: Record<Locale, Record<typeof settings.pixKeyType, string>> = {
+  'pt-br': {
+    cnpj: 'CNPJ',
+    email: 'E-mail',
+    phone: 'Telefone',
+    random: 'Chave Aleatória',
+  },
+  en: {
+    cnpj: 'CNPJ (Tax ID)',
+    email: 'Email',
+    phone: 'Phone',
+    random: 'Random Key',
+  },
+};
+---
+
+<div class="rounded-3xl border-2 border-coral-500 bg-surface p-6 shadow-md sm:p-8">
+  <div class="grid items-center gap-8 lg:grid-cols-12">
+    <div class="space-y-4 lg:col-span-7">
+      <div class="inline-flex items-center gap-2 rounded-full bg-mint-400 px-3.5 py-1 text-xs font-extrabold tracking-wide uppercase text-ink">
+        <span>PIX • Brasil</span>
+      </div>
+      <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+        {title}
+      </h2>
+      <p class="text-sm leading-relaxed text-ink-muted sm:text-base">
+        {body}
+      </p>
+
+      <!-- PIX Key Box -->
+      <div class="rounded-2xl border border-ink/10 bg-surface-warm p-4">
+        <p class="text-xs font-bold tracking-wider uppercase text-ink-muted">
+          {locale === 'pt-br' ? 'Chave PIX' : 'PIX Key'} ({keyTypeLabels[locale][settings.pixKeyType]})
+        </p>
+        <p class="mt-1 break-all font-mono text-base font-extrabold text-ink sm:text-lg">
+          {settings.pixKey}
+        </p>
+        <p class="mt-1 text-xs font-medium text-ink-muted">
+          {locale === 'pt-br' ? 'Beneficiário' : 'Receiver'}: <strong class="text-ink">{settings.pixReceiverName}</strong> ({settings.pixCity})
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button
+            type="button"
+            data-copy-value={settings.pixKey}
+            data-copied-label={t('action.copied')}
+            data-track="pix-copy-key"
+            class="pix-copy-btn inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral-600 px-5 py-2.5 text-xs font-extrabold text-white shadow-2xs transition-colors hover:bg-coral-700"
+          >
+            <span>{t('action.copyPixKey')}</span>
+          </button>
+
+          <button
+            type="button"
+            data-copy-value={pixPayload}
+            data-copied-label={t('action.copied')}
+            data-track="pix-copy-code"
+            class="pix-copy-btn inline-flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 bg-surface px-5 py-2.5 text-xs font-extrabold text-ink transition-colors hover:bg-mint-50"
+          >
+            <span>{t('action.copyPixCode')}</span>
+          </button>
+        </div>
+        <p
+          id="pix-copy-status"
+          aria-live="polite"
+          class="mt-2 min-h-4 text-xs font-bold text-mint-700"
+        >
+        </p>
+      </div>
+
+      {
+        securityNote && (
+          <p class="text-xs font-medium text-ink-muted">
+            🔒 {securityNote}
+          </p>
+        )
+      }
+    </div>
+
+    <!-- QR Code Column -->
+    <div class="flex flex-col items-center justify-center lg:col-span-5">
+      <div class="flex flex-col items-center rounded-2xl border-2 border-ink/10 bg-surface p-5 shadow-xs">
+        {
+          hasCustomQr ? (
+            <img
+              src={settings.pixQrImage}
+              alt="QR Code PIX Instituto Levante"
+              width="220"
+              height="220"
+              class="h-52 w-52 object-contain"
+            />
+          ) : (
+            <div
+              class="h-52 w-52 [&>svg]:h-full [&>svg]:w-full"
+              role="img"
+              aria-label="QR Code PIX Instituto Levante"
+              set:html={qrSvg}
+            />
+          )
+        }
+        <span class="mt-3 text-xs font-bold text-ink-muted">
+          {locale === 'pt-br' ? 'Escaneie no app do seu banco' : 'Scan with your Brazilian bank app'}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.pix-copy-btn').forEach((btn) => {
+    const originalHtml = btn.innerHTML;
+    btn.addEventListener('click', async () => {
+      const value = btn.getAttribute('data-copy-value') || '';
+      const copiedLabel = btn.getAttribute('data-copied-label') || 'Copied!';
+      const statusEl = document.getElementById('pix-copy-status');
+      try {
+        await navigator.clipboard.writeText(value);
+        btn.textContent = '✓ ' + copiedLabel;
+        if (statusEl) statusEl.textContent = copiedLabel;
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+        }, 2200);
+      } catch {
+        if (statusEl) statusEl.textContent = value;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,45 @@
+---
+import AlumniSpotlight from '@/components/AlumniSpotlight.astro';
+import Hero from '@/components/Hero.astro';
+import Section from '@/components/Section.astro';
+import TeamGrid from '@/components/TeamGrid.astro';
+import type { Locale } from '@/i18n/config';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('team', locale);
+const data = pageEntry.data;
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={data.intro}
+  routeKey="team"
+>
+  <Hero title={data.title} subtitle={data.intro} variant="coral" />
+
+  {
+    data.alumniSpotlight && data.alumniSpotlight.enabled && (
+      <Section bg="white" class="pb-4">
+        <AlumniSpotlight
+          badge={data.alumniSpotlight.badge}
+          title={data.alumniSpotlight.title}
+          story={data.alumniSpotlight.story}
+          quote={data.alumniSpotlight.quote}
+          memberName={data.alumniSpotlight.memberName}
+          memberRole={data.alumniSpotlight.memberRole}
+        />
+      </Section>
+    )
+  }
+
+  <Section bg="white">
+    <TeamGrid locale={locale} groups={data.groups} members={data.members} />
+  </Section>
+</BaseLayout>

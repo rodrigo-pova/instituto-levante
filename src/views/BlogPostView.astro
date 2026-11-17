@@ -1,0 +1,136 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Prose from '@/components/Prose.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import { formatDate, path, useTranslations } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPostBySlug } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+  post: CollectionEntry<'blog'> & { slug: string };
+}
+
+const { locale, post } = Astro.props;
+const t = useTranslations(locale);
+const { Content } = await render(post);
+
+const otherLocale: Locale = locale === 'pt-br' ? 'en' : 'pt-br';
+const translatedPost = await getPostBySlug(post.slug, otherLocale);
+const availableLocales: Locale[] = translatedPost
+  ? ['pt-br', 'en']
+  : [locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={post.data.title}
+  description={post.data.description}
+  routeKey="post"
+  slug={post.slug}
+  availableLocales={availableLocales}
+  image={post.data.cover}
+>
+  <article>
+    <header class="border-b border-ink/10 bg-surface-warm py-12 sm:py-16">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <a
+          href={path('blog', locale)}
+          class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-coral-600 hover:text-coral-700"
+        >
+          <span aria-hidden="true">←</span>
+          <span>{t('action.backToBlog')}</span>
+        </a>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-mint-700">
+          <span>{t('blog.publishedOn')}</span>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {formatDate(post.data.pubDate, locale)}
+          </time>
+          {
+            post.data.author && (
+              <>
+                <span aria-hidden="true">•</span>
+                <span>
+                  {t('blog.by')} {post.data.author}
+                </span>
+              </>
+            )
+          }
+        </div>
+
+        <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-balance text-ink sm:text-4xl lg:text-5xl">
+          {post.data.title}
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-ink-muted">
+          {post.data.description}
+        </p>
+
+        {
+          translatedPost && (
+            <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-mint-400/40 bg-mint-50 px-4 py-1.5 text-xs font-bold text-mint-800">
+              <span>🌐 {t('blog.availableInOtherLang')}</span>
+              <a
+                href={path('post', otherLocale, post.slug)}
+                class="underline hover:text-ink"
+              >
+                {otherLocale === 'en' ? 'Read in English →' : 'Ler em Português →'}
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    <Section bg="white" class="py-10 sm:py-14">
+      <div class="mx-auto max-w-3xl">
+        {
+          post.data.cover && (
+            <figure class="mb-10 overflow-hidden rounded-3xl border border-ink/10 shadow-sm">
+              <img
+                src={post.data.cover}
+                alt={post.data.coverAlt || post.data.title}
+                width="800"
+                height="500"
+                loading="eager"
+                decoding="async"
+                class="aspect-16/10 w-full object-cover"
+              />
+            </figure>
+          )
+        }
+
+        <Prose>
+          <Content />
+        </Prose>
+
+        <div class="mt-14 flex flex-col items-center justify-between gap-4 rounded-3xl border border-ink/10 bg-surface-warm p-6 sm:flex-row">
+          <div>
+            <p class="text-sm font-extrabold text-ink">
+              {
+                locale === 'pt-br'
+                  ? 'Gostou de acompanhar nosso trabalho?'
+                  : 'Inspired by our students and community?'
+              }
+            </p>
+            <p class="text-xs text-ink-muted">
+              {
+                locale === 'pt-br'
+                  ? 'Ajude a manter nossas aulas, refeições e passeios culturais.'
+                  : 'Help keep our classes, meals, and cultural outings thriving.'
+              }
+            </p>
+          </div>
+          <a
+            href={path('donate', locale)}
+            class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-sun-400 px-5 py-2.5 text-xs font-extrabold text-ink transition-colors hover:bg-sun-500"
+          >
+            <span aria-hidden="true">♥</span>
+            <span>{t('nav.donate')}</span>
+          </a>
+        </div>
+      </div>
+    </Section>
+  </article>
+</BaseLayout>

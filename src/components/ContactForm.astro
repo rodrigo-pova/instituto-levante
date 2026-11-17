@@ -1,0 +1,125 @@
+---
+import type { Locale } from '@/i18n/config';
+import { useTranslations } from '@/i18n/utils';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const subjects =
+  locale === 'pt-br'
+    ? [
+        'Matrícula / Inscrição de aluno',
+        'Voluntariado',
+        'Doação de livros ou materiais',
+        'Convite cultural / Teatro',
+        'Doação financeira / Internacional',
+        'Outro assunto',
+      ]
+    : [
+        'Student enrollment',
+        'Volunteering',
+        'Book or equipment donation',
+        'Cultural / Theater invitation',
+        'International donation / Grant',
+        'Other inquiry',
+      ];
+---
+
+<form
+  method="POST"
+  action="/api/forms/contato"
+  data-track="contact-submit"
+  class="space-y-5 rounded-3xl border border-ink/10 bg-surface p-6 shadow-sm sm:p-8"
+>
+  <input type="hidden" name="form-name" value="contato" />
+  <input type="hidden" name="locale" value={locale} />
+
+  <!-- Honeypot anti-spam field -->
+  <div class="hidden" aria-hidden="true">
+    <label>
+      {t('form.honeypot')}
+      <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="contact-name" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        {t('form.name')} *
+      </label>
+      <input
+        id="contact-name"
+        name="name"
+        type="text"
+        required
+        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      />
+    </div>
+
+    <div>
+      <label for="contact-email" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        {t('form.email')} *
+      </label>
+      <input
+        id="contact-email"
+        name="email"
+        type="email"
+        required
+        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      />
+    </div>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="contact-phone" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        {t('form.phone')}
+      </label>
+      <input
+        id="contact-phone"
+        name="phone"
+        type="tel"
+        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      />
+    </div>
+
+    <div>
+      <label for="contact-subject" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        {t('form.subject')} *
+      </label>
+      <select
+        id="contact-subject"
+        name="subject"
+        required
+        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      >
+        {subjects.map((subj) => <option value={subj}>{subj}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label for="contact-message" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      {t('form.message')} *
+    </label>
+    <textarea
+      id="contact-message"
+      name="message"
+      rows="4"
+      required
+      class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral-600 px-7 py-3.5 text-sm font-extrabold text-white shadow-xs transition-colors hover:bg-coral-700"
+  >
+    <span>{t('action.sendMessage')}</span>
+    <span aria-hidden="true">→</span>
+  </button>
+</form>

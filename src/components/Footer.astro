@@ -1,0 +1,200 @@
+---
+import type { Locale } from '@/i18n/config';
+import { path, useTranslations } from '@/i18n/utils';
+import { settings } from '@/lib/settings';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink/10 bg-ink text-white">
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <!-- Column 1: Brand & Mission -->
+      <div class="space-y-4">
+        <a href={path('home', locale)} class="inline-flex items-center gap-3">
+          <span
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-coral-500 text-white"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 32 32" class="h-6 w-6" fill="none">
+              <circle cx="16" cy="13" r="6.5" fill="#F6C944" />
+              <path
+                d="M5 23C10 19.5 22 19.5 27 23"
+                stroke="#5BC6B5"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8 27C13 24.5 19 24.5 24 27"
+                stroke="#FFFFFF"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="text-xl font-extrabold tracking-tight text-white">
+            {settings.name}
+          </span>
+        </a>
+        <p class="text-sm leading-relaxed text-white/80">
+          {
+            locale === 'pt-br'
+              ? 'Esporte, alimentação nutritiva, biblioteca comunitária e cultura para crianças e jovens na praia.'
+              : 'Beach volleyball, nutritious meals, community library, and cultural outings for children and youth.'
+          }
+        </p>
+        <p class="text-xs font-medium text-mint-400">
+          {t('footer.cnpj')}: {settings.cnpj}
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h2 class="text-xs font-bold tracking-wider uppercase text-sun-400">
+          {t('footer.quickLinks')}
+        </h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li>
+            <a href={path('about', locale)} class="text-white/80 hover:text-white">
+              {t('nav.about')}
+            </a>
+          </li>
+          <li>
+            <a href={path('team', locale)} class="text-white/80 hover:text-white">
+              {t('nav.team')}
+            </a>
+          </li>
+          <li>
+            <a href={path('partners', locale)} class="text-white/80 hover:text-white">
+              {t('nav.partners')}
+            </a>
+          </li>
+          <li>
+            <a href={path('getInvolved', locale)} class="text-white/80 hover:text-white">
+              {t('nav.getInvolved')}
+            </a>
+          </li>
+          <li>
+            <a href={path('transparency', locale)} class="text-white/80 hover:text-white">
+              {t('nav.transparency')}
+            </a>
+          </li>
+          <li>
+            <a href={path('blog', locale)} class="text-white/80 hover:text-white">
+              {t('nav.blog')}
+            </a>
+          </li>
+          <li>
+            <a href={path('donate', locale)} class="font-semibold text-sun-400 hover:underline">
+              {t('nav.donate')}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Beach Class Location & Schedule -->
+      <div>
+        <h2 class="text-xs font-bold tracking-wider uppercase text-sun-400">
+          {t('footer.location')}
+        </h2>
+        <div class="mt-4 space-y-3 text-sm text-white/80">
+          <p>{settings.address}</p>
+          <p class="text-xs text-white/70">{settings.classSchedule}</p>
+          <p class="pt-1">
+            <a
+              href={`mailto:${settings.email}`}
+              class="font-medium text-mint-400 hover:underline"
+            >
+              {settings.email}
+            </a>
+          </p>
+          <p class="text-xs text-white/75">{settings.phone}</p>
+        </div>
+      </div>
+
+      <!-- Column 4: Socials & Support CTA -->
+      <div>
+        <h2 class="text-xs font-bold tracking-wider uppercase text-sun-400">
+          {t('footer.social')}
+        </h2>
+        <div class="mt-4 flex flex-wrap gap-2.5">
+          {
+            settings.socials.instagram && (
+              <a
+                href={settings.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/15"
+              >
+                Instagram
+              </a>
+            )
+          }
+          {
+            settings.socials.linkedin && (
+              <a
+                href={settings.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/15"
+              >
+                LinkedIn
+              </a>
+            )
+          }
+          {
+            settings.socials.youtube && (
+              <a
+                href={settings.socials.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/15"
+              >
+                YouTube
+              </a>
+            )
+          }
+        </div>
+        <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+          <p class="text-xs text-white/85">
+            {
+              locale === 'pt-br'
+                ? 'Sua empresa tributa pelo Lucro Real? Apoie via Lei de Incentivo ao Esporte.'
+                : 'Corporate CSR or international grantmaker? Partner with our team.'
+            }
+          </p>
+          <a
+            href={path('partners', locale)}
+            class="mt-2.5 inline-flex items-center gap-1 text-xs font-bold text-mint-400 hover:underline"
+          >
+            <span>{t('nav.partners')}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/60 sm:flex-row"
+    >
+      <p>© {year} {settings.name}. {t('footer.rights')}</p>
+      <div class="flex items-center gap-4">
+        <a
+          href={locale === 'en' ? '/en/blog/rss.xml' : '/blog/rss.xml'}
+          class="hover:text-white"
+        >
+          RSS
+        </a>
+        <a href={path('transparency', locale)} class="hover:text-white">
+          {t('nav.transparency')}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

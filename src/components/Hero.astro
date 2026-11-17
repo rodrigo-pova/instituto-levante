@@ -1,0 +1,141 @@
+---
+export interface Props {
+  badge?: string;
+  title: string;
+  subtitle: string;
+  image?: string;
+  imageAlt?: string;
+  primaryCta?: { label: string; href: string; track?: string };
+  secondaryCta?: { label: string; href: string; download?: boolean; track?: string };
+  variant?: 'coral' | 'warm';
+}
+
+const {
+  badge,
+  title,
+  subtitle,
+  image,
+  imageAlt = '',
+  primaryCta,
+  secondaryCta,
+  variant = 'coral',
+} = Astro.props;
+
+const isCoral = variant === 'coral';
+---
+
+<section
+  class:list={[
+    'relative overflow-hidden border-b border-ink/10',
+    isCoral ? 'bg-coral-500 text-white' : 'bg-surface-warm text-ink',
+  ]}
+>
+  <!-- Decorative geometric waves inspired by the beach & media kit -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-sun-400/20 blur-2xl"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-mint-400/25 blur-2xl"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+    <div
+      class:list={[
+        'grid items-center gap-10',
+        image ? 'lg:grid-cols-12' : 'max-w-3xl',
+      ]}
+    >
+      <div class:list={[image ? 'lg:col-span-7' : '']}>
+        {
+          badge && (
+            <span
+              class:list={[
+                'inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-extrabold tracking-wide uppercase shadow-2xs',
+                isCoral
+                  ? 'bg-sun-400 text-ink'
+                  : 'border border-mint-400/40 bg-mint-50 text-mint-800',
+              ]}
+            >
+              {badge}
+            </span>
+          )
+        }
+        <h1
+          class:list={[
+            'mt-4 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl lg:text-5xl',
+            isCoral ? 'text-white' : 'text-ink',
+          ]}
+        >
+          {title}
+        </h1>
+        <p
+          class:list={[
+            'mt-5 max-w-2xl text-lg font-medium leading-relaxed sm:text-xl',
+            isCoral ? 'text-white/95' : 'text-ink-muted',
+          ]}
+        >
+          {subtitle}
+        </p>
+
+        {
+          (primaryCta || secondaryCta) && (
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              {primaryCta && (
+                <a
+                  href={primaryCta.href}
+                  data-track={primaryCta.track}
+                  class:list={[
+                    'inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-extrabold shadow-sm transition-all',
+                    isCoral
+                      ? 'bg-sun-400 text-ink hover:bg-sun-500'
+                      : 'bg-coral-600 text-white hover:bg-coral-700',
+                  ]}
+                >
+                  <span>{primaryCta.label}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              )}
+              {secondaryCta && (
+                <a
+                  href={secondaryCta.href}
+                  download={secondaryCta.download ? '' : undefined}
+                  data-track={secondaryCta.track}
+                  class:list={[
+                    'inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-extrabold transition-all',
+                    isCoral
+                      ? 'bg-mint-400 text-ink hover:bg-mint-100'
+                      : 'border-2 border-ink/15 bg-white text-ink hover:border-ink/30',
+                  ]}
+                >
+                  <span>{secondaryCta.label}</span>
+                </a>
+              )}
+            </div>
+          )
+        }
+      </div>
+
+      {
+        image && (
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-lg overflow-hidden rounded-3xl border-4 border-white/90 bg-surface-warm shadow-xl">
+              <img
+                src={image}
+                alt={imageAlt || title}
+                width="800"
+                height="500"
+                loading="eager"
+                decoding="async"
+                class="aspect-16/10 w-full object-cover"
+              />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

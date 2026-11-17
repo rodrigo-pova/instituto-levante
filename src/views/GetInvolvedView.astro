@@ -1,0 +1,63 @@
+---
+import Hero from '@/components/Hero.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage } from '@/lib/content';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('getInvolved', locale);
+const data = pageEntry.data;
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={data.intro}
+  routeKey="getInvolved"
+>
+  <Hero title={data.title} subtitle={data.intro} variant="coral" />
+
+  <Section bg="white">
+    <div class="grid gap-6 md:grid-cols-2">
+      {
+        data.ways.map((way, idx) => {
+          const accents = [
+            'border-t-coral-500',
+            'border-t-mint-400',
+            'border-t-sun-400',
+            'border-t-lilac-400',
+          ];
+          return (
+            <article
+              class:list={[
+                'flex flex-col justify-between rounded-3xl border border-ink/10 border-t-4 bg-surface p-7 shadow-xs',
+                accents[idx % accents.length],
+              ]}
+            >
+              <div>
+                <h2 class="text-xl font-extrabold text-ink">{way.title}</h2>
+                <p class="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
+                  {way.description}
+                </p>
+              </div>
+              <div class="mt-6 pt-4">
+                <a
+                  href={way.cta.href}
+                  class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-5 py-2.5 text-xs font-extrabold text-white transition-colors hover:bg-coral-700"
+                >
+                  <span>{way.cta.label}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </Section>
+</BaseLayout>

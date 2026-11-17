@@ -1,0 +1,98 @@
+---
+import type { OrgCategory, TierKey } from '@/content.config';
+import type { Locale } from '@/i18n/config';
+
+export interface OrgItem {
+  name: string;
+  logo: string;
+  url?: string;
+  category: OrgCategory;
+  tier?: TierKey;
+}
+
+export interface Props {
+  locale: Locale;
+  organizations: OrgItem[];
+  headings: {
+    sponsors: string;
+    institutional: string;
+    supporters: string;
+  };
+}
+
+const { locale, organizations, headings } = Astro.props;
+
+const tierLabels: Record<Locale, Record<TierKey, string>> = {
+  'pt-br': {
+    mantenedor: 'Mantenedor',
+    ouro: 'Ouro',
+    prata: 'Prata',
+    apoiador: 'Apoiador',
+  },
+  en: {
+    mantenedor: 'Sustaining',
+    ouro: 'Gold',
+    prata: 'Silver',
+    apoiador: 'Supporter',
+  },
+};
+
+const groups: Array<{ key: OrgCategory; title: string }> = [
+  { key: 'sponsor', title: headings.sponsors },
+  { key: 'institutional_partner', title: headings.institutional },
+  { key: 'supporter', title: headings.supporters },
+];
+---
+
+<div class="space-y-12">
+  {
+    groups.map((group) => {
+      const items = organizations.filter((o) => o.category === group.key);
+      if (items.length === 0) return null;
+
+      return (
+        <div>
+          <h3 class="mb-5 text-center text-sm font-extrabold tracking-wider uppercase text-ink-muted">
+            {group.title}
+          </h3>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {items.map((org) => {
+              const Tag = org.url ? 'a' : 'div';
+              const linkProps = org.url
+                ? {
+                    href: org.url,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  }
+                : {};
+              return (
+                <Tag
+                  {...linkProps}
+                  class="group relative flex flex-col items-center justify-center rounded-2xl border border-ink/10 bg-surface p-5 shadow-2xs transition-all hover:border-mint-400 hover:shadow-sm"
+                >
+                  {org.tier && (
+                    <span class="mb-2 rounded-full bg-sun-100 px-2.5 py-0.5 text-[10px] font-extrabold tracking-wider uppercase text-ink">
+                      {tierLabels[locale][org.tier]}
+                    </span>
+                  )}
+                  <img
+                    src={org.logo}
+                    alt={org.name}
+                    width="200"
+                    height="60"
+                    loading="lazy"
+                    decoding="async"
+                    class="h-14 w-auto max-w-full object-contain transition-transform group-hover:scale-105"
+                  />
+                  <span class="mt-2 text-xs font-semibold text-ink-muted">
+                    {org.name}
+                  </span>
+                </Tag>
+              );
+            })}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

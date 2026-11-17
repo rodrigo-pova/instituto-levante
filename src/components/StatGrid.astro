@@ -1,0 +1,42 @@
+---
+export interface StatItem {
+  value: string;
+  label: string;
+  sublabel?: string;
+}
+
+export interface Props {
+  stats: StatItem[];
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  {
+    stats.map((stat, idx) => {
+      const accents = [
+        'border-t-coral-500',
+        'border-t-mint-400',
+        'border-t-sun-400',
+        'border-t-lilac-400',
+      ];
+      return (
+        <div
+          class:list={[
+            'rounded-2xl border border-ink/10 border-t-4 bg-surface p-6 shadow-xs',
+            accents[idx % accents.length],
+          ]}
+        >
+          <p class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+            {stat.value}
+          </p>
+          <p class="mt-2 text-sm font-bold text-ink">{stat.label}</p>
+          {stat.sublabel && (
+            <p class="mt-1 text-xs font-medium text-ink-muted">{stat.sublabel}</p>
+          )}
+        </div>
+      );
+    })
+  }
+</div>

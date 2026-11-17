@@ -1,0 +1,54 @@
+---
+import Hero from '@/components/Hero.astro';
+import ReportList from '@/components/ReportList.astro';
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPage } from '@/lib/content';
+import { settings } from '@/lib/settings';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const pageEntry = await getPage('transparency', locale);
+const data = pageEntry.data;
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title}
+  description={data.intro}
+  routeKey="transparency"
+>
+  <Hero title={data.title} subtitle={data.intro} variant="coral" />
+
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl space-y-10">
+      {
+        data.governanceNotes && (
+          <div class="rounded-2xl border border-mint-400/40 bg-mint-50 p-6">
+            <p class="text-sm font-medium leading-relaxed text-ink">
+              {data.governanceNotes}
+            </p>
+            <p class="mt-2 text-xs font-extrabold text-mint-800">
+              CNPJ: {settings.cnpj} • {settings.name}
+            </p>
+          </div>
+        )
+      }
+
+      <div>
+        <h2 class="mb-6 text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
+          {
+            locale === 'pt-br'
+              ? 'Documentos, Relatórios e Certidões'
+              : 'Public Reports, Bylaws & Certificates'
+          }
+        </h2>
+        <ReportList locale={locale} reports={data.reports} />
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

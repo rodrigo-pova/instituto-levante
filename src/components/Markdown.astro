@@ -1,0 +1,19 @@
+---
+import { marked } from 'marked';
+
+export interface Props {
+  content: string;
+  class?: string;
+}
+
+const { content, class: className = '' } = Astro.props;
+const html = await marked.parse(content ?? '');
+---
+
+<div
+  class:list={[
+    'prose prose-slate max-w-none prose-headings:font-extrabold prose-headings:text-ink prose-p:text-ink/90 prose-a:font-semibold prose-a:text-coral-600 hover:prose-a:text-coral-700 prose-strong:text-ink',
+    className,
+  ]}
+  set:html={html}
+/>

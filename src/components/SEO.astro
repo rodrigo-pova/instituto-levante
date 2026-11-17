@@ -1,0 +1,83 @@
+---
+import { bcp47, type Locale } from '@/i18n/config';
+import type { AlternateLink } from '@/i18n/utils';
+import { shouldIndex } from '@/lib/env';
+import { settings } from '@/lib/settings';
+
+export interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternates: AlternateLink[];
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  alternates,
+  image = '/uploads/hero-beach-volleyball.jpg',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://institutolevante.org.br');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+const fullTitle = title.includes(settings.name)
+  ? title
+  : `${title} | ${settings.name}`;
+const rssHref = locale === 'en' ? '/en/blog/rss.xml' : '/blog/rss.xml';
+const defaultAlt = alternates.find((a) => a.locale === 'pt-br') ?? alternates[0];
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+{(!shouldIndex || noindex) && <meta name="robots" content="noindex, nofollow" />}
+
+{
+  alternates.map((alt) => (
+    <link
+      rel="alternate"
+      hreflang={alt.lang}
+      href={new URL(alt.href, siteUrl).toString()}
+    />
+  ))
+}
+{
+  defaultAlt && (
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(defaultAlt.href, siteUrl).toString()}
+    />
+  )
+}
+
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${settings.name} — Blog (${bcp47[locale]})`}
+  href={rssHref}
+/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={settings.name} />
+<meta property="og:locale" content={bcp47[locale].replace('-', '_')} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />

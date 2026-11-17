@@ -1,0 +1,171 @@
+---
+import type { Locale } from '@/i18n/config';
+import type { RouteKey } from '@/i18n/routes';
+import type { UIKey } from '@/i18n/ui';
+import { path, useTranslations, type AlternateLink } from '@/i18n/utils';
+import { settings } from '@/lib/settings';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+export interface Props {
+  locale: Locale;
+  routeKey: RouteKey | 'post' | 'notFound';
+  alternates: AlternateLink[];
+}
+
+const { locale, routeKey, alternates } = Astro.props;
+const t = useTranslations(locale);
+
+const navItems: Array<{ key: RouteKey; labelKey: UIKey }> = [
+  { key: 'about', labelKey: 'nav.about' },
+  { key: 'team', labelKey: 'nav.team' },
+  { key: 'partners', labelKey: 'nav.partners' },
+  { key: 'transparency', labelKey: 'nav.transparency' },
+  { key: 'blog', labelKey: 'nav.blog' },
+  { key: 'contact', labelKey: 'nav.contact' },
+];
+
+const isActive = (key: RouteKey) =>
+  routeKey === key || (key === 'blog' && routeKey === 'post');
+---
+
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-surface/95 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
+    <!-- Brand Logo -->
+    <a
+      href={path('home', locale)}
+      class="group flex items-center gap-3 text-ink focus-visible:rounded-lg"
+    >
+      <span
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral-500 text-white shadow-xs transition-transform group-hover:scale-105"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 32 32" class="h-6 w-6" fill="none">
+          <circle cx="16" cy="13" r="6.5" fill="#F6C944" />
+          <path
+            d="M5 23C10 19.5 22 19.5 27 23"
+            stroke="#5BC6B5"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M8 27C13 24.5 19 24.5 24 27"
+            stroke="#FFFFFF"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </span>
+      <span class="flex flex-col">
+        <span class="text-lg font-extrabold tracking-tight leading-none text-ink">
+          {settings.name}
+        </span>
+        <span class="mt-0.5 text-[11px] font-semibold tracking-wider uppercase text-mint-700">
+          {locale === 'pt-br' ? 'Esporte & Cidadania' : 'Sports & Citizenship'}
+        </span>
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav aria-label="Main" class="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
+      {
+        navItems.map((item) => {
+          const active = isActive(item.key);
+          return (
+            <a
+              href={path(item.key, locale)}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                active
+                  ? 'bg-coral-50 text-coral-600'
+                  : 'text-ink hover:bg-surface-warm hover:text-coral-600',
+              ]}
+            >
+              {t(item.labelKey)}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <!-- Desktop Actions: Language Switcher + Donate CTA -->
+    <div class="hidden items-center gap-3 lg:flex">
+      <LanguageSwitcher locale={locale} alternates={alternates} />
+      <a
+        href={path('donate', locale)}
+        class="inline-flex items-center gap-1.5 rounded-full bg-sun-400 px-5 py-2.5 text-sm font-extrabold text-ink shadow-xs transition-all hover:bg-sun-500 hover:shadow-sm"
+      >
+        <span aria-hidden="true">♥</span>
+        <span>{t('nav.donate')}</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu & Quick Actions -->
+    <div class="flex items-center gap-2 lg:hidden">
+      <LanguageSwitcher locale={locale} alternates={alternates} />
+      <a
+        href={path('donate', locale)}
+        class="inline-flex items-center rounded-full bg-sun-400 px-3.5 py-1.5 text-xs font-extrabold text-ink shadow-xs"
+      >
+        {t('nav.donate')}
+      </a>
+      <details class="group relative">
+        <summary
+          class="flex cursor-pointer list-none items-center justify-center rounded-lg border border-ink/15 p-2 text-ink hover:bg-surface-warm [&::-webkit-details-marker]:hidden"
+          aria-label={t('nav.menu')}
+        >
+          <svg
+            class="h-5 w-5 group-open:hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg
+            class="hidden h-5 w-5 group-open:block"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </summary>
+        <div
+          class="absolute right-0 mt-2 w-64 origin-top-right rounded-2xl border border-ink/10 bg-surface p-3 shadow-xl"
+        >
+          <nav aria-label="Mobile" class="flex flex-col gap-1">
+            {
+              navItems.map((item) => {
+                const active = isActive(item.key);
+                return (
+                  <a
+                    href={path(item.key, locale)}
+                    aria-current={active ? 'page' : undefined}
+                    class:list={[
+                      'rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors',
+                      active
+                        ? 'bg-coral-50 text-coral-600'
+                        : 'text-ink hover:bg-surface-warm',
+                    ]}
+                  >
+                    {t(item.labelKey)}
+                  </a>
+                );
+              })
+            }
+            <hr class="my-1.5 border-ink/10" />
+            <a
+              href={path('getInvolved', locale)}
+              class="rounded-lg px-3 py-2 text-sm font-semibold text-ink-muted hover:bg-surface-warm hover:text-ink"
+            >
+              {t('nav.getInvolved')}
+            </a>
+          </nav>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

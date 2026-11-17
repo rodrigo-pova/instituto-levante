@@ -1,0 +1,41 @@
+---
+import { localeLabel, type Locale } from '@/i18n/config';
+import { useTranslations, type AlternateLink } from '@/i18n/utils';
+
+export interface Props {
+  locale: Locale;
+  alternates: AlternateLink[];
+}
+
+const { locale, alternates } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<nav
+  aria-label={t('lang.switch')}
+  class="inline-flex items-center rounded-full border border-ink/15 bg-surface-warm p-0.5 text-xs font-semibold"
+>
+  {
+    alternates.map((alt) => {
+      const isCurrent = alt.locale === locale;
+      const shortLabel = alt.locale === 'pt-br' ? 'PT' : 'EN';
+      return (
+        <a
+          href={alt.href}
+          hreflang={alt.lang}
+          lang={alt.lang}
+          aria-current={isCurrent ? 'page' : undefined}
+          title={localeLabel[alt.locale]}
+          class:list={[
+            'rounded-full px-2.5 py-1 transition-colors',
+            isCurrent
+              ? 'bg-ink text-white shadow-xs'
+              : 'text-ink-muted hover:text-ink',
+          ]}
+        >
+          {shortLabel}
+        </a>
+      );
+    })
+  }
+</nav>

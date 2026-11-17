@@ -1,0 +1,72 @@
+---
+export interface Props {
+  id?: string;
+  tag?: string;
+  title?: string;
+  intro?: string;
+  bg?: 'white' | 'warm' | 'mint' | 'lilac' | 'coral' | 'ink';
+  class?: string;
+}
+
+const {
+  id,
+  tag,
+  title,
+  intro,
+  bg = 'white',
+  class: className = '',
+} = Astro.props;
+
+const bgClassMap: Record<NonNullable<Props['bg']>, string> = {
+  white: 'bg-surface text-ink',
+  warm: 'bg-surface-warm text-ink border-y border-ink/5',
+  mint: 'bg-mint-50 text-ink border-y border-mint-400/25',
+  lilac: 'bg-lilac-50 text-ink border-y border-lilac-400/25',
+  coral: 'bg-coral-500 text-white',
+  ink: 'bg-ink text-white',
+};
+---
+
+<section id={id} class:list={['py-14 sm:py-20', bgClassMap[bg], className]}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    {
+      (tag || title || intro) && (
+        <div class="mx-auto mb-12 max-w-3xl text-center">
+          {tag && (
+            <span
+              class:list={[
+                'inline-block rounded-full px-3.5 py-1 text-xs font-extrabold tracking-wider uppercase',
+                bg === 'coral' || bg === 'ink'
+                  ? 'bg-sun-400 text-ink'
+                  : 'bg-mint-400/25 text-mint-800',
+              ]}
+            >
+              {tag}
+            </span>
+          )}
+          {title && (
+            <h2
+              class:list={[
+                'mt-3 text-2xl font-extrabold tracking-tight text-balance sm:text-3xl lg:text-4xl',
+                bg === 'coral' || bg === 'ink' ? 'text-white' : 'text-ink',
+              ]}
+            >
+              {title}
+            </h2>
+          )}
+          {intro && (
+            <p
+              class:list={[
+                'mt-4 text-base leading-relaxed sm:text-lg',
+                bg === 'coral' || bg === 'ink' ? 'text-white/90' : 'text-ink-muted',
+              ]}
+            >
+              {intro}
+            </p>
+          )}
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

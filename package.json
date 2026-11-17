@@ -7,10 +7,10 @@
     "node": ">=22.23"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "check": "astro check",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "test": "vitest run",
     "format": "prettier --write .",
     "lint": "prettier --check ."

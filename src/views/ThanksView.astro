@@ -1,0 +1,71 @@
+---
+import Section from '@/components/Section.astro';
+import type { Locale } from '@/i18n/config';
+import type { RouteKey } from '@/i18n/routes';
+import { path } from '@/i18n/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export interface Props {
+  locale: Locale;
+  routeKey: Extract<RouteKey, 'contactThanks' | 'partnersThanks'>;
+}
+
+const { locale, routeKey } = Astro.props;
+const isPartners = routeKey === 'partnersThanks';
+
+const title =
+  locale === 'pt-br'
+    ? 'Mensagem enviada com sucesso!'
+    : 'Thank you for reaching out!';
+
+const description = isPartners
+  ? locale === 'pt-br'
+    ? 'Recebemos seu interesse em construir uma parceria com o Instituto Levante. Nossa diretoria entrará em contato em breve.'
+    : 'We have received your partnership inquiry. Our executive team will get back to you shortly.'
+  : locale === 'pt-br'
+    ? 'Recebemos sua mensagem. Nossa equipe responderá o mais breve possível.'
+    : 'We have received your message. Our team will reply as soon as possible.';
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  routeKey={routeKey}
+  noindex={true}
+>
+  <Section bg="warm" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-xl rounded-3xl border-2 border-mint-400 bg-surface p-8 text-center shadow-md sm:p-12">
+      <div
+        class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-mint-400 text-2xl font-extrabold text-ink"
+        aria-hidden="true"
+      >
+        ✓
+      </div>
+      <h1 class="mt-6 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+        {title}
+      </h1>
+      <p class="mt-3 text-base leading-relaxed text-ink-muted">
+        {description}
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a
+          href={path('home', locale)}
+          class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-coral-700"
+        >
+          <span>{locale === 'pt-br' ? 'Voltar para o Início' : 'Back to Homepage'}</span>
+        </a>
+        {
+          isPartners && (
+            <a
+              href={path('partners', locale)}
+              class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-surface-warm px-6 py-3 text-sm font-extrabold text-ink transition-colors hover:bg-mint-50"
+            >
+              <span>{locale === 'pt-br' ? 'Voltar para Parcerias' : 'Back to Partnerships'}</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

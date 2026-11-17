@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Core Brand Palette — Instituto Levante */
+  --color-coral-50: #fef2f1;
+  --color-coral-100: #fde3e1;
+  --color-coral-500: #eb534a; /* Official brand coral (heroes, large-text bands, borders) */
+  --color-coral-600: #d13b32; /* AA-accessible coral for white button text & links on white (4.79:1) */
+  --color-coral-700: #b82d25; /* Hover state (6.10:1) */
+
+  --color-mint-50: #eef9f7;
+  --color-mint-100: #d5f2ed;
+  --color-mint-400: #5bc6b5; /* Official brand mint (use with charcoal text: 7.61:1) */
+  --color-mint-700: #1c786a; /* AA-accessible deep mint for text/icons on white (5.32:1) */
+  --color-mint-800: #14594e; /* High-contrast teal (8.18:1) */
+
+  --color-sun-50: #fffbeb;
+  --color-sun-100: #fef8e1;
+  --color-sun-400: #f6c944; /* Official brand yellow (use with charcoal text: 9.98:1) */
+  --color-sun-500: #eab308;
+
+  --color-lilac-50: #f7f1f9;
+  --color-lilac-100: #efe3f3;
+  --color-lilac-400: #cb9bd5; /* Official brand lilac (use with charcoal text: 6.87:1) */
+  --color-lilac-800: #583161;
+
+  /* Neutrals for Legibility */
+  --color-ink: #1e2428; /* Deep charcoal body text (15.7:1 on white) */
+  --color-ink-muted: #4b5563; /* Secondary text (7.5:1 on white) */
+  --color-surface: #ffffff;
+  --color-surface-warm: #fdfbf7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-mint-700);
+    outline-offset: 2px;
+  }
+}
