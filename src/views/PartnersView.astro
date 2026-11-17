@@ -33,16 +33,14 @@ const organizations = (await getOrganizations({ activeOnly: true })).map(
     title={data.hero.title}
     subtitle={data.hero.subtitle}
     primaryCta={data.hero.primaryCta}
-    secondaryCta={
-      data.hero.mediaKitPdf
-        ? {
-            label: data.hero.mediaKitPdf.label,
-            href: data.hero.mediaKitPdf.file,
-            download: true,
-            track: 'media-kit-download',
-          }
-        : undefined
-    }
+    secondaryCta={data.hero.mediaKitPdf
+      ? {
+          label: data.hero.mediaKitPdf.label,
+          href: data.hero.mediaKitPdf.file,
+          download: true,
+          track: 'media-kit-download',
+        }
+      : undefined}
     variant="coral"
   />
 
@@ -64,12 +62,12 @@ const organizations = (await getOrganizations({ activeOnly: true })).map(
           return (
             <div
               class:list={[
-                'rounded-2xl border border-ink/10 border-t-4 bg-surface-warm p-6 shadow-2xs',
+                'border-ink/10 bg-surface-warm rounded-2xl border border-t-4 p-6 shadow-2xs',
                 accents[idx % accents.length],
               ]}
             >
-              <h3 class="text-lg font-extrabold text-ink">{item.title}</h3>
-              <p class="mt-2.5 text-sm leading-relaxed text-ink-muted">
+              <h3 class="text-ink text-lg font-extrabold">{item.title}</h3>
+              <p class="text-ink-muted mt-2.5 text-sm leading-relaxed">
                 {item.body}
               </p>
             </div>
@@ -93,11 +91,9 @@ const organizations = (await getOrganizations({ activeOnly: true })).map(
   <!-- 4. Sponsorship Tiers -->
   <Section
     tag={locale === 'pt-br' ? 'Cotas de Patrocínio' : 'Sponsorship Tiers'}
-    title={
-      locale === 'pt-br'
-        ? 'Formatos de apoio para a sua organização'
-        : 'Partnership levels for your organization'
-    }
+    title={locale === 'pt-br'
+      ? 'Formatos de apoio para a sua organização'
+      : 'Partnership levels for your organization'}
     bg="warm"
   >
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -142,13 +138,13 @@ const organizations = (await getOrganizations({ activeOnly: true })).map(
       <Section bg="lilac">
         <div class="mx-auto max-w-3xl space-y-6">
           {data.testimonials.map((tItem) => (
-            <blockquote class="rounded-3xl border border-lilac-400/40 bg-surface p-8 text-center shadow-xs">
-              <p class="text-lg font-semibold italic leading-relaxed text-ink">
+            <blockquote class="border-lilac-400/40 bg-surface rounded-3xl border p-8 text-center shadow-xs">
+              <p class="text-ink text-lg leading-relaxed font-semibold italic">
                 “{tItem.quote}”
               </p>
               <footer class="mt-4">
-                <p class="text-sm font-extrabold text-ink">{tItem.author}</p>
-                <p class="text-xs font-semibold text-lilac-800">
+                <p class="text-ink text-sm font-extrabold">{tItem.author}</p>
+                <p class="text-lilac-800 text-xs font-semibold">
                   {[tItem.role, tItem.company].filter(Boolean).join(' • ')}
                 </p>
               </footer>

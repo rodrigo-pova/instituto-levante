@@ -1,10 +1,10 @@
 hero:
-  title: "Our Story and Commitment"
-  subtitle: "How an impromptu volleyball net on the beach evolved into a network of care, empowerment, and opportunity for hundreds of families."
-  image: "/uploads/about-beach-community.jpg"
+  title: 'Our Story and Commitment'
+  subtitle: 'How an impromptu volleyball net on the beach evolved into a network of care, empowerment, and opportunity for hundreds of families.'
+  image: '/uploads/about-beach-community.jpg'
 
 story:
-  title: "Four years of building bridges on the sand"
+  title: 'Four years of building bridges on the sand'
   body: |
     Instituto Levante emerged from a simple conviction: while the beach is our city's most democratic public space, access to structured athletics, proper nutrition, and enriching cultural experiences remains deeply unequal.
 
@@ -13,25 +13,25 @@ story:
     With generous support from neighbors, volunteers, and grassroots community campaigns — such as the crowdfunding effort that made our milestone **4-Year Anniversary Tournament** possible —, we established Levante's permanent program: bi-weekly beach volleyball classes, guaranteed nutritious meals at 100% of sessions, a lending library with hundreds of books, and frequent cultural outings to theaters and museums.
 
 routine:
-  title: "A Day at Instituto Levante"
-  intro: "Our weekly routine is designed to nurture the whole child — body, mind, and spirit."
+  title: 'A Day at Instituto Levante'
+  intro: 'Our weekly routine is designed to nurture the whole child — body, mind, and spirit.'
   steps:
-    - title: "Arrival & Reading Circle"
-      description: "Students gather, reconnect with coaches and peers, and enjoy free time exploring our mobile library or picking books to take home."
-      time: "8:00 AM / 3:00 PM"
-    - title: "Sand Volleyball Practice"
-      description: "Dynamic warm-ups, motor skill drills, volleyball fundamentals (serving, passing, setting), and cooperative team scrimmages."
-      time: "8:30 AM / 3:30 PM"
-    - title: "Shared Meal & Reflection"
-      description: "A nourishing meal with fresh fruits, wholesome snacks, and natural juices, offering time to celebrate progress and bond as a team."
-      time: "9:30 AM / 4:30 PM"
+    - title: 'Arrival & Reading Circle'
+      description: 'Students gather, reconnect with coaches and peers, and enjoy free time exploring our mobile library or picking books to take home.'
+      time: '8:00 AM / 3:00 PM'
+    - title: 'Sand Volleyball Practice'
+      description: 'Dynamic warm-ups, motor skill drills, volleyball fundamentals (serving, passing, setting), and cooperative team scrimmages.'
+      time: '8:30 AM / 3:30 PM'
+    - title: 'Shared Meal & Reflection'
+      description: 'A nourishing meal with fresh fruits, wholesome snacks, and natural juices, offering time to celebrate progress and bond as a team.'
+      time: '9:30 AM / 4:30 PM'
 
 values:
-  - title: "Dignity & Belonging"
-    description: "Every child is unique. We attend to the individual, emotional, and social needs of each student who sets foot on our sand court."
-  - title: "Purpose-Driven Sport"
-    description: "We teach volleyball not just to develop athletes, but to cultivate resilience, leadership, and mutual respect."
-  - title: "Living Education & Culture"
-    description: "We believe that regular access to books, live theater, and cultural landmarks sparks curiosity and expands what youth imagine possible for their futures."
-  - title: "Transparency & Ethical Governance"
-    description: "We account for every dollar and real received with open financial reporting, clear metrics, and absolute respect for our partners."
+  - title: 'Dignity & Belonging'
+    description: 'Every child is unique. We attend to the individual, emotional, and social needs of each student who sets foot on our sand court.'
+  - title: 'Purpose-Driven Sport'
+    description: 'We teach volleyball not just to develop athletes, but to cultivate resilience, leadership, and mutual respect.'
+  - title: 'Living Education & Culture'
+    description: 'We believe that regular access to books, live theater, and cultural landmarks sparks curiosity and expands what youth imagine possible for their futures.'
+  - title: 'Transparency & Ethical Governance'
+    description: 'We account for every dollar and real received with open financial reporting, clear metrics, and absolute respect for our partners.'

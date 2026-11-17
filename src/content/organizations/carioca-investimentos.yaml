@@ -1,7 +1,7 @@
-name: "Carioca Investimentos"
-logo: "/uploads/logos/carioca-investimentos.svg"
-url: "https://example.com"
-category: "sponsor"
-tier: "ouro"
+name: 'Carioca Investimentos'
+logo: '/uploads/logos/carioca-investimentos.svg'
+url: 'https://example.com'
+category: 'sponsor'
+tier: 'ouro'
 active: true
 order: 2

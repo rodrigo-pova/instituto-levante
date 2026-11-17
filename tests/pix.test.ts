@@ -23,9 +23,9 @@ describe('PIX static payload builder & BACEN compliance', () => {
     // Merchant Name max 25 chars, uppercase, no accents
     expect(cleanAscii('Instituto Levante', 25)).toBe('INSTITUTO LEVANTE');
     expect(cleanAscii('São Paulo & Açúcar', 25)).toBe('SAO PAULO  ACUCAR');
-    expect(cleanAscii('A very long name that exceeds twenty-five characters', 25)).toBe(
-      'A VERY LONG NAME THAT EXC',
-    );
+    expect(
+      cleanAscii('A very long name that exceeds twenty-five characters', 25),
+    ).toBe('A VERY LONG NAME THAT EXC');
 
     // City max 15 chars
     expect(cleanAscii('Rio de Janeiro', 15)).toBe('RIO DE JANEIRO');
@@ -33,7 +33,9 @@ describe('PIX static payload builder & BACEN compliance', () => {
   });
 
   it('normalizes PIX keys by format', () => {
-    expect(normalizePixKey('12.345.678/0001-90', 'cnpj')).toBe('12345678000190');
+    expect(normalizePixKey('12.345.678/0001-90', 'cnpj')).toBe(
+      '12345678000190',
+    );
     expect(normalizePixKey('Contato@InstitutoLevante.org.br', 'email')).toBe(
       'contato@institutolevante.org.br',
     );

@@ -1,6 +1,6 @@
-name: "Fundação Leitura Viva"
-logo: "/uploads/logos/leitura-viva.svg"
-url: "https://example.com"
-category: "institutional_partner"
+name: 'Fundação Leitura Viva'
+logo: '/uploads/logos/leitura-viva.svg'
+url: 'https://example.com'
+category: 'institutional_partner'
 active: true
 order: 4

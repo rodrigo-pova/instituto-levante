@@ -30,13 +30,13 @@ const interestOptions =
 
 <div
   id="formulario-parceria"
-  class="scroll-mt-24 rounded-3xl border-2 border-ink/10 bg-surface p-6 shadow-md sm:p-10"
+  class="border-ink/10 bg-surface scroll-mt-24 rounded-3xl border-2 p-6 shadow-md sm:p-10"
 >
   <div class="max-w-2xl">
-    <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+    <h2 class="text-ink text-2xl font-extrabold tracking-tight sm:text-3xl">
       {title}
     </h2>
-    <p class="mt-2.5 text-sm leading-relaxed text-ink-muted sm:text-base">
+    <p class="text-ink-muted mt-2.5 text-sm leading-relaxed sm:text-base">
       {intro}
     </p>
   </div>
@@ -60,7 +60,10 @@ const interestOptions =
 
     <div class="grid gap-5 sm:grid-cols-2">
       <div>
-        <label for="partner-company" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-company"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.company')} *
         </label>
         <input
@@ -68,12 +71,15 @@ const interestOptions =
           name="company"
           type="text"
           required
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         />
       </div>
 
       <div>
-        <label for="partner-name" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-name"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.name')} *
         </label>
         <input
@@ -81,26 +87,32 @@ const interestOptions =
           name="name"
           type="text"
           required
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         />
       </div>
     </div>
 
     <div class="grid gap-5 sm:grid-cols-3">
       <div>
-        <label for="partner-role" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-role"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.role')}
         </label>
         <input
           id="partner-role"
           name="role"
           type="text"
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         />
       </div>
 
       <div>
-        <label for="partner-email" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-email"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.email')} *
         </label>
         <input
@@ -108,49 +120,62 @@ const interestOptions =
           name="email"
           type="email"
           required
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         />
       </div>
 
       <div>
-        <label for="partner-phone" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-phone"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.phone')}
         </label>
         <input
           id="partner-phone"
           name="phone"
           type="tel"
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         />
       </div>
     </div>
 
     <div class="grid gap-5 sm:grid-cols-2">
       <div>
-        <label for="partner-interest" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-interest"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.interest')} *
         </label>
         <select
           id="partner-interest"
           name="interest"
           required
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         >
           {interestOptions.map((opt) => <option value={opt}>{opt}</option>)}
         </select>
       </div>
 
       <div>
-        <label for="partner-tier" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+        <label
+          for="partner-tier"
+          class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+        >
           {t('form.tierInterest')}
         </label>
         <select
           id="partner-tier"
           name="tier"
-          class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+          class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
         >
           <option value="custom">
-            {locale === 'pt-br' ? 'Ainda não sei / Personalizada' : 'Undecided / Custom Proposal'}
+            {
+              locale === 'pt-br'
+                ? 'Ainda não sei / Personalizada'
+                : 'Undecided / Custom Proposal'
+            }
           </option>
           {tiers.map((tier) => <option value={tier.key}>{tier.name}</option>)}
         </select>
@@ -158,7 +183,10 @@ const interestOptions =
     </div>
 
     <div>
-      <label for="partner-message" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      <label
+        for="partner-message"
+        class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+      >
         {t('form.message')} *
       </label>
       <textarea
@@ -166,13 +194,13 @@ const interestOptions =
         name="message"
         rows="4"
         required
-        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
       ></textarea>
     </div>
 
     <button
       type="submit"
-      class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral-600 px-8 py-4 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-coral-700"
+      class="bg-coral-600 hover:bg-coral-700 inline-flex cursor-pointer items-center gap-2 rounded-full px-8 py-4 text-sm font-extrabold text-white shadow-sm transition-colors"
     >
       <span>{t('action.sendMessage')}</span>
       <span aria-hidden="true">→</span>

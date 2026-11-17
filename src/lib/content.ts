@@ -38,8 +38,7 @@ export async function getPage<C extends PageCollectionKey>(
 
   const id = `${locale}/${fileMap[collection]}`;
   const entry = (await getEntry(collection as 'home', id)) as
-    | CollectionEntry<C>
-    | undefined;
+    CollectionEntry<C> | undefined;
 
   if (!entry) {
     throw new Error(

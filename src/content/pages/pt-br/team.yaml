@@ -1,70 +1,70 @@
-title: "Nossa Equipe"
-intro: "Conheça quem faz o Instituto Levante acontecer todos os dias — dos fundadores aos educadores, monitores e profissionais de apoio."
+title: 'Nossa Equipe'
+intro: 'Conheça quem faz o Instituto Levante acontecer todos os dias — dos fundadores aos educadores, monitores e profissionais de apoio.'
 
 alumniSpotlight:
   enabled: true
-  badge: "Da Areia para a Equipe"
-  title: "A história de quem cresceu nas nossas turmas"
-  story: "Nosso projeto se torna verdadeiramente sustentável quando os próprios jovens atendidos assumem papéis de liderança. No Levante, temos orgulho de contar com ex-alunos que hoje atuam diretamente como monitores e educadores, retribuindo o aprendizado e inspirando as novas turmas com sua trajetória."
-  quote: "Eu cheguei aqui sem saber sacar uma bola e muitas vezes sem ter tomado café da manhã. Hoje, estar do outro lado ensinando e cuidando das crianças é a maior vitória da minha vida."
-  memberName: "Lucas Nascimento"
-  memberRole: "Monitor Técnico • Ex-aluno (Turma de 2020)"
+  badge: 'Da Areia para a Equipe'
+  title: 'A história de quem cresceu nas nossas turmas'
+  story: 'Nosso projeto se torna verdadeiramente sustentável quando os próprios jovens atendidos assumem papéis de liderança. No Levante, temos orgulho de contar com ex-alunos que hoje atuam diretamente como monitores e educadores, retribuindo o aprendizado e inspirando as novas turmas com sua trajetória.'
+  quote: 'Eu cheguei aqui sem saber sacar uma bola e muitas vezes sem ter tomado café da manhã. Hoje, estar do outro lado ensinando e cuidando das crianças é a maior vitória da minha vida.'
+  memberName: 'Lucas Nascimento'
+  memberRole: 'Monitor Técnico • Ex-aluno (Turma de 2020)'
 
 groups:
-  founder: "Fundadores"
-  teacher: "Professores"
-  tutor: "Monitores e Tutores"
-  staff: "Equipe"
+  founder: 'Fundadores'
+  teacher: 'Professores'
+  tutor: 'Monitores e Tutores'
+  staff: 'Equipe'
 
 members:
-  - name: "Mariana Souza"
-    role: "Co-fundadora & Diretora Geral"
-    group: "founder"
-    photo: "/uploads/team-mariana.jpg"
-    photoAlt: "Foto de Mariana Souza, co-fundadora"
-    bio: "Ex-atleta de vôlei de praia e gestora social, lidera a visão estratégica e a sustentabilidade institucional do Levante desde 2020."
+  - name: 'Mariana Souza'
+    role: 'Co-fundadora & Diretora Geral'
+    group: 'founder'
+    photo: '/uploads/team-mariana.jpg'
+    photoAlt: 'Foto de Mariana Souza, co-fundadora'
+    bio: 'Ex-atleta de vôlei de praia e gestora social, lidera a visão estratégica e a sustentabilidade institucional do Levante desde 2020.'
     isAlumni: false
     order: 1
 
-  - name: "Rodrigo Carvalho"
-    role: "Co-fundador & Coordenador Esportivo"
-    group: "founder"
-    photo: ""
-    bio: "Profissional de Educação Física com especialização em pedagogia do esporte e inclusão social através do atletismo e vôlei."
+  - name: 'Rodrigo Carvalho'
+    role: 'Co-fundador & Coordenador Esportivo'
+    group: 'founder'
+    photo: ''
+    bio: 'Profissional de Educação Física com especialização em pedagogia do esporte e inclusão social através do atletismo e vôlei.'
     isAlumni: false
     order: 2
 
-  - name: "Camila Ribeiro"
-    role: "Professora de Educação Física"
-    group: "teacher"
-    photo: "/uploads/team-camila.jpg"
-    photoAlt: "Foto da Professora Camila Ribeiro"
-    bio: "Responsável pelo planejamento pedagógico dos treinos na areia, focando no desenvolvimento motor e cooperação entre faixas etárias."
+  - name: 'Camila Ribeiro'
+    role: 'Professora de Educação Física'
+    group: 'teacher'
+    photo: '/uploads/team-camila.jpg'
+    photoAlt: 'Foto da Professora Camila Ribeiro'
+    bio: 'Responsável pelo planejamento pedagógico dos treinos na areia, focando no desenvolvimento motor e cooperação entre faixas etárias.'
     isAlumni: false
     order: 3
 
-  - name: "Lucas Nascimento"
-    role: "Monitor de Treino & Apoio à Biblioteca"
-    group: "tutor"
-    photo: "/uploads/team-lucas.jpg"
-    photoAlt: "Foto de Lucas Nascimento, monitor e ex-aluno"
-    bio: "Iniciou no Levante aos 13 anos. Hoje é estudante universitário de Educação Física e acompanha os treinos semanais e os círculos de leitura."
+  - name: 'Lucas Nascimento'
+    role: 'Monitor de Treino & Apoio à Biblioteca'
+    group: 'tutor'
+    photo: '/uploads/team-lucas.jpg'
+    photoAlt: 'Foto de Lucas Nascimento, monitor e ex-aluno'
+    bio: 'Iniciou no Levante aos 13 anos. Hoje é estudante universitário de Educação Física e acompanha os treinos semanais e os círculos de leitura.'
     isAlumni: true
-    alumniNote: "Ex-aluno • Turma de 2020"
+    alumniNote: 'Ex-aluno • Turma de 2020'
     order: 4
 
-  - name: "Beatriz Lima"
-    role: "Nutricionista & Coordenadora de Alimentação"
-    group: "staff"
-    photo: ""
-    bio: "Elabora os cardápios das refeições pós-treino, garantindo refeições balanceadas e orientando hábitos alimentares saudáveis com as famílias."
+  - name: 'Beatriz Lima'
+    role: 'Nutricionista & Coordenadora de Alimentação'
+    group: 'staff'
+    photo: ''
+    bio: 'Elabora os cardápios das refeições pós-treino, garantindo refeições balanceadas e orientando hábitos alimentares saudáveis com as famílias.'
     isAlumni: false
     order: 5
 
-  - name: "André Silveira"
-    role: "Assistente Administrativo & Parcerias"
-    group: "staff"
-    photo: ""
-    bio: "Cuida da logística dos dias de aula, prestação de contas, transporte dos passeios culturais e apoio às empresas parceiras."
+  - name: 'André Silveira'
+    role: 'Assistente Administrativo & Parcerias'
+    group: 'staff'
+    photo: ''
+    bio: 'Cuida da logística dos dias de aula, prestação de contas, transporte dos passeios culturais e apoio às empresas parceiras.'
     isAlumni: false
     order: 6

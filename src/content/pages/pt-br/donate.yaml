@@ -1,29 +1,29 @@
-title: "Doe para o Instituto Levante"
-intro: "Seja parte dessa rede de transformação. Cada contribuição garante que mais crianças tenham acesso a esporte, nutrição diária, livros e experiências culturais enriquecedoras."
+title: 'Doe para o Instituto Levante'
+intro: 'Seja parte dessa rede de transformação. Cada contribuição garante que mais crianças tenham acesso a esporte, nutrição diária, livros e experiências culturais enriquecedoras.'
 
 pix:
-  title: "Doação Imediata via PIX"
-  body: "A forma mais rápida, segura e sem taxas de apoiar nosso trabalho. Você pode escanear o QR Code abaixo pelo aplicativo do seu banco ou copiar nossa chave."
-  securityNote: "Confirme sempre o nome do beneficiário INSTITUTO LEVANTE antes de concluir a transferência."
+  title: 'Doação Imediata via PIX'
+  body: 'A forma mais rápida, segura e sem taxas de apoiar nosso trabalho. Você pode escanear o QR Code abaixo pelo aplicativo do seu banco ou copiar nossa chave.'
+  securityNote: 'Confirme sempre o nome do beneficiário INSTITUTO LEVANTE antes de concluir a transferência.'
 
 crowdfunding:
-  title: "Campanhas Coletivas"
-  body: "Participamos periodicamente de campanhas em plataformas como Vakinha e Benfeitoria para projetos especiais e reformas de materiais."
-  buttonLabel: "Acessar Campanha"
+  title: 'Campanhas Coletivas'
+  body: 'Participamos periodicamente de campanhas em plataformas como Vakinha e Benfeitoria para projetos especiais e reformas de materiais.'
+  buttonLabel: 'Acessar Campanha'
 
 international:
-  badge: "Doadores no Exterior / Grants"
-  title: "Apoiando de fora do Brasil?"
-  body: "Se você reside no exterior, representa uma fundação filantrópica internacional ou deseja realizar doações via transferência internacional (Wire/SWIFT), entre em contato direto com nossa equipe de relações internacionais."
-  ctaLabel: "Falar com Relações Internacionais"
-  ctaHref: "/contato/"
+  badge: 'Doadores no Exterior / Grants'
+  title: 'Apoiando de fora do Brasil?'
+  body: 'Se você reside no exterior, representa uma fundação filantrópica internacional ou deseja realizar doações via transferência internacional (Wire/SWIFT), entre em contato direto com nossa equipe de relações internacionais.'
+  ctaLabel: 'Falar com Relações Internacionais'
+  ctaHref: '/contato/'
 
 impact:
-  - amount: "R$ 35"
-    description: "Garante lanches saudáveis e frutas frescas para um aluno durante duas semanas inteiras de treinos."
-  - amount: "R$ 75"
-    description: "Viabiliza a compra de 3 novos livros para nossa biblioteca comunitária infantil."
-  - amount: "R$ 150"
-    description: "Cobre o transporte seguro e ingressos culturais de duas crianças para assistir a uma peça de teatro."
-  - amount: "R$ 300"
-    description: "Financia material esportivo de alta durabilidade (bolas de vôlei de praia oficiais e redes) para a turma."
+  - amount: 'R$ 35'
+    description: 'Garante lanches saudáveis e frutas frescas para um aluno durante duas semanas inteiras de treinos.'
+  - amount: 'R$ 75'
+    description: 'Viabiliza a compra de 3 novos livros para nossa biblioteca comunitária infantil.'
+  - amount: 'R$ 150'
+    description: 'Cobre o transporte seguro e ingressos culturais de duas crianças para assistir a uma peça de teatro.'
+  - amount: 'R$ 300'
+    description: 'Financia material esportivo de alta durabilidade (bolas de vôlei de praia oficiais e redes) para a turma.'

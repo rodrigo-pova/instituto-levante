@@ -1,10 +1,10 @@
 hero:
-  title: "Nossa História e Compromisso"
-  subtitle: "Como uma quadra improvisada de vôlei na praia se transformou em uma rede de afeto, desenvolvimento e oportunidades para centenas de famílias."
-  image: "/uploads/about-beach-community.jpg"
+  title: 'Nossa História e Compromisso'
+  subtitle: 'Como uma quadra improvisada de vôlei na praia se transformou em uma rede de afeto, desenvolvimento e oportunidades para centenas de famílias.'
+  image: '/uploads/about-beach-community.jpg'
 
 story:
-  title: "Quatro anos construindo pontes na areia"
+  title: 'Quatro anos construindo pontes na areia'
   body: |
     O Instituto Levante nasceu de uma inquietação simples: a praia é o espaço mais democrático da nossa cidade, mas o acesso a modalidades esportivas estruturadas, alimentação adequada e cultura de qualidade ainda é profundamente desigual.
 
@@ -13,25 +13,25 @@ story:
     Com o apoio de vizinhos, voluntários e campanhas colaborativas — como a vaquinha comunitária que viabilizou nosso marcante **Torneio de 4 Anos** —, estruturamos o programa permanente do Levante: treinos de vôlei de praia às terças e quintas, alimentação nutritiva garantida em 100% dos encontros, uma biblioteca circulante com centenas de títulos e um calendário constante de passeios a teatros e eventos culturais.
 
 routine:
-  title: "Como funciona um dia de Levante"
-  intro: "Nossa rotina foi desenhada para acolher a criança em sua totalidade — corpo, mente e imaginação."
+  title: 'Como funciona um dia de Levante'
+  intro: 'Nossa rotina foi desenhada para acolher a criança em sua totalidade — corpo, mente e imaginação.'
   steps:
-    - title: "Chegada & Círculo de Leitura"
-      description: "Os alunos chegam, encontram seus colegas e têm acesso livre à biblioteca móvel para ler ou escolher livros para levar para casa."
-      time: "8h00 / 15h00"
-    - title: "Treino na Areia"
-      description: "Aquecimento dinâmico, exercícios de coordenação motora, fundamentos de saque, manchete e levantamento, além de jogos educativos focados em cooperação."
-      time: "8h30 / 15h30"
-    - title: "Refeição Coletiva & Encerramento"
-      description: "Momento sagrado de partilha. Todos se reúnem para uma refeição equilibrada com frutas, proteínas e sucos naturais, celebrando as conquistas do dia."
-      time: "9h30 / 16h30"
+    - title: 'Chegada & Círculo de Leitura'
+      description: 'Os alunos chegam, encontram seus colegas e têm acesso livre à biblioteca móvel para ler ou escolher livros para levar para casa.'
+      time: '8h00 / 15h00'
+    - title: 'Treino na Areia'
+      description: 'Aquecimento dinâmico, exercícios de coordenação motora, fundamentos de saque, manchete e levantamento, além de jogos educativos focados em cooperação.'
+      time: '8h30 / 15h30'
+    - title: 'Refeição Coletiva & Encerramento'
+      description: 'Momento sagrado de partilha. Todos se reúnem para uma refeição equilibrada com frutas, proteínas e sucos naturais, celebrando as conquistas do dia.'
+      time: '9h30 / 16h30'
 
 values:
-  - title: "Acolhimento & Dignidade"
-    description: "Cada aluno é único. Olhamos para as necessidades individuais, familiares e sociais de cada criança que pisa em nossa quadra."
-  - title: "Esporte com Propósito"
-    description: "Ensinamos vôlei não apenas para formar atletas, mas para desenvolver resiliência, liderança e respeito mútuo."
-  - title: "Educação & Cultura Vivas"
-    description: "Acreditamos que o acesso a livros e espetáculos teatrais expande os horizontes e desperta sonhos que antes pareciam distantes."
-  - title: "Transparência & Gestão Ética"
-    description: "Prestamos contas de cada recurso recebido com relatórios abertos, governança clara e respeito aos nossos apoiadores."
+  - title: 'Acolhimento & Dignidade'
+    description: 'Cada aluno é único. Olhamos para as necessidades individuais, familiares e sociais de cada criança que pisa em nossa quadra.'
+  - title: 'Esporte com Propósito'
+    description: 'Ensinamos vôlei não apenas para formar atletas, mas para desenvolver resiliência, liderança e respeito mútuo.'
+  - title: 'Educação & Cultura Vivas'
+    description: 'Acreditamos que o acesso a livros e espetáculos teatrais expande os horizontes e desperta sonhos que antes pareciam distantes.'
+  - title: 'Transparência & Gestão Ética'
+    description: 'Prestamos contas de cada recurso recebido com relatórios abertos, governança clara e respeito aos nossos apoiadores.'

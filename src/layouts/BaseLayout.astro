@@ -2,7 +2,11 @@
 import '../styles/global.css';
 import { bcp47, type Locale } from '@/i18n/config';
 import type { RouteKey } from '@/i18n/routes';
-import { getAlternates, useTranslations, type AlternateLink } from '@/i18n/utils';
+import {
+  getAlternates,
+  useTranslations,
+  type AlternateLink,
+} from '@/i18n/utils';
 import Analytics from '@/components/Analytics.astro';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
@@ -57,10 +61,10 @@ const alternates: AlternateLink[] =
     />
     <Analytics />
   </head>
-  <body class="flex min-h-screen flex-col bg-surface text-ink antialiased">
+  <body class="bg-surface text-ink flex min-h-screen flex-col antialiased">
     <a
       href="#content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-sun-400 focus:px-4 focus:py-2 focus:text-sm focus:font-extrabold focus:text-ink focus:shadow-lg"
+      class="focus:bg-sun-400 focus:text-ink sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:text-sm focus:font-extrabold focus:shadow-lg"
     >
       {t('nav.skipToContent')}
     </a>

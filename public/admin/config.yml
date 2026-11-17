@@ -1,0 +1,749 @@
+backend:
+  name: github
+  repo: rodrigo-pova/instituto-levante
+  branch: main
+  base_url: https://institutolevante.org.br
+  auth_endpoint: oauth/authorize
+
+media_folder: public/uploads
+public_folder: /uploads
+
+i18n:
+  structure: multiple_folders
+  locales:
+    - pt-br
+    - en
+  default_locale: pt-br
+
+collections:
+  # 1. Páginas Fixas (Singletons)
+  - name: pages
+    label: Páginas Institucionais
+    delete: false
+    files:
+      # Home
+      - name: home
+        label: Página Inicial (Home)
+        file: src/content/pages/{locale}/home.yaml
+        fields:
+          - label: Hero Principal
+            name: hero
+            widget: object
+            fields:
+              - {
+                  label: Badge / Destaque,
+                  name: badge,
+                  widget: string,
+                  required: false,
+                }
+              - { label: Título Principal, name: title, widget: string }
+              - { label: Subtítulo, name: subtitle, widget: text }
+              - {
+                  label: Imagem de Destaque,
+                  name: image,
+                  widget: image,
+                  required: false,
+                  i18n: duplicate,
+                }
+              - label: Botão Principal
+                name: cta
+                widget: object
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Botão Secundário
+                name: secondaryCta
+                widget: object
+                required: false
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+          - label: Missão & Propósito
+            name: mission
+            widget: object
+            fields:
+              - {
+                  label: Tag / Seção,
+                  name: tag,
+                  widget: string,
+                  required: false,
+                }
+              - { label: Título, name: title, widget: string }
+              - { label: Texto da Missão, name: body, widget: text }
+          - label: Pilares do Projeto
+            name: pillars
+            widget: list
+            fields:
+              - { label: Ícone, name: icon, widget: string, i18n: duplicate }
+              - { label: Título, name: title, widget: string }
+              - { label: Descrição, name: description, widget: text }
+              - {
+                  label: Destaque,
+                  name: highlight,
+                  widget: string,
+                  required: false,
+                }
+          - label: Números & Impacto
+            name: stats
+            widget: list
+            fields:
+              - { label: Valor / Número, name: value, widget: string }
+              - { label: Rótulo Principal, name: label, widget: string }
+              - {
+                  label: Complemento,
+                  name: sublabel,
+                  widget: string,
+                  required: false,
+                }
+          - label: Chamada de Ex-Aluno (Destaque)
+            name: alumniCallout
+            widget: object
+            required: false
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: Título, name: title, widget: string }
+              - { label: Depoimento / História, name: story, widget: text }
+              - label: Botão de Conhecer a Equipe
+                name: cta
+                widget: object
+                required: false
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+          - label: Faixa de Parceiros
+            name: sponsorBand
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - label: Botão
+                name: cta
+                widget: object
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+          - label: Faixa de Doação
+            name: donateBand
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Mensagem, name: body, widget: text }
+              - label: Botão
+                name: cta
+                widget: object
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+      # About
+      - name: about
+        label: Sobre o Instituto
+        file: src/content/pages/{locale}/about.yaml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Subtítulo, name: subtitle, widget: text }
+              - {
+                  label: Imagem,
+                  name: image,
+                  widget: image,
+                  required: false,
+                  i18n: duplicate,
+                }
+          - label: Nossa História
+            name: story
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Texto (Markdown), name: body, widget: markdown }
+          - label: Rotina do Projeto na Praia
+            name: routine
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Introdução, name: intro, widget: text }
+              - label: Etapas da Rotina
+                name: steps
+                widget: list
+                fields:
+                  - { label: Título da Etapa, name: title, widget: string }
+                  - { label: Descrição, name: description, widget: text }
+                  - {
+                      label: Horário / Frequência,
+                      name: time,
+                      widget: string,
+                      required: false,
+                    }
+          - label: Nossos Valores
+            name: values
+            widget: list
+            fields:
+              - { label: Título do Valor, name: title, widget: string }
+              - { label: Descrição, name: description, widget: text }
+
+      # Team
+      - name: team
+        label: Nossa Equipe & Ex-Alunos
+        file: src/content/pages/{locale}/team.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Texto Introdutório, name: intro, widget: text }
+          - label: Destaque de Ex-Aluno(a)
+            name: alumniSpotlight
+            widget: object
+            required: false
+            fields:
+              - {
+                  label: Ativar Destaque,
+                  name: enabled,
+                  widget: boolean,
+                  default: true,
+                  i18n: duplicate,
+                }
+              - { label: Badge, name: badge, widget: string }
+              - { label: Título, name: title, widget: string }
+              - { label: História / Trajetória, name: story, widget: text }
+              - {
+                  label: Citação / Frase,
+                  name: quote,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Nome do Membro Destacado,
+                  name: memberName,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Cargo do Membro Destacado,
+                  name: memberRole,
+                  widget: string,
+                  required: false,
+                }
+          - label: Títulos dos Grupos da Equipe
+            name: groups
+            widget: object
+            fields:
+              - { label: Fundadores / Diretoria, name: founder, widget: string }
+              - {
+                  label: Professores / Treinadores,
+                  name: teacher,
+                  widget: string,
+                }
+              - {
+                  label: Tutores / Apoio Pedagógico,
+                  name: tutor,
+                  widget: string,
+                }
+              - { label: Equipe Geral / Staff, name: staff, widget: string }
+          - label: Membros da Equipe
+            name: members
+            widget: list
+            fields:
+              - { label: Nome Completo, name: name, widget: string }
+              - { label: Cargo / Função, name: role, widget: string }
+              - label: Grupo
+                name: group
+                widget: select
+                options:
+                  - { label: Fundador(a) / Diretoria, value: founder }
+                  - { label: Professor(a) / Treinador(a), value: teacher }
+                  - { label: Tutor(a) / Pedagógico, value: tutor }
+                  - { label: Apoio / Staff, value: staff }
+                default: staff
+                i18n: duplicate
+              - {
+                  label: Foto (opcional),
+                  name: photo,
+                  widget: image,
+                  required: false,
+                  i18n: duplicate,
+                }
+              - {
+                  label: Texto alternativo da foto,
+                  name: photoAlt,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Mini Biografia,
+                  name: bio,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: É Ex-aluno(a) do Projeto?,
+                  name: isAlumni,
+                  widget: boolean,
+                  default: false,
+                  i18n: duplicate,
+                }
+              - {
+                  label: 'Nota de Ex-Aluno(a) (ex: Turma 2021)',
+                  name: alumniNote,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Ordem de Exibição,
+                  name: order,
+                  widget: number,
+                  default: 0,
+                  value_type: int,
+                  i18n: duplicate,
+                }
+
+      # Partners
+      - name: partners
+        label: Parceiros & Patrocínio
+        file: src/content/pages/{locale}/partners.yaml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string, required: false }
+              - { label: Título, name: title, widget: string }
+              - { label: Subtítulo, name: subtitle, widget: text }
+              - label: Botão Principal
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Mídia Kit (PDF)
+                name: mediaKitPdf
+                widget: object
+                required: false
+                fields:
+                  - { label: Rótulo do Botão, name: label, widget: string }
+                  - {
+                      label: Arquivo PDF,
+                      name: file,
+                      widget: file,
+                      i18n: duplicate,
+                    }
+          - label: Por que ser parceiro
+            name: whyPartner
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - {
+                  label: Introdução,
+                  name: intro,
+                  widget: text,
+                  required: false,
+                }
+              - label: Benefícios / Motivos
+                name: items
+                widget: list
+                fields:
+                  - { label: Título, name: title, widget: string }
+                  - { label: Descrição, name: body, widget: text }
+          - label: Destaque de Incentivo Fiscal (LIE / Grants)
+            name: incentiveFocus
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: Título, name: title, widget: string }
+              - { label: Descrição Geral, name: body, widget: text }
+              - label: Passo a Passo
+                name: steps
+                widget: list
+                fields:
+                  - { label: Número / Passo, name: number, widget: string }
+                  - { label: Título, name: title, widget: string }
+                  - {
+                      label: Descrição detalhada,
+                      name: description,
+                      widget: text,
+                    }
+              - {
+                  label: Nota / Aviso importante,
+                  name: callout,
+                  widget: text,
+                  required: false,
+                }
+          - label: Cotas de Patrocínio
+            name: tiers
+            widget: list
+            fields:
+              - label: Chave da Cota
+                name: key
+                widget: select
+                options:
+                  - { label: Mantenedor, value: mantenedor }
+                  - { label: Cota Ouro, value: ouro }
+                  - { label: Cota Prata, value: prata }
+                  - { label: Apoiador, value: apoiador }
+                i18n: duplicate
+              - { label: Nome da Cota, name: name, widget: string }
+              - {
+                  label: Valor / Investimento (opcional),
+                  name: price,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Contrapartidas / Benefícios,
+                  name: benefits,
+                  widget: list,
+                }
+              - {
+                  label: Cota em Destaque?,
+                  name: highlighted,
+                  widget: boolean,
+                  default: false,
+                  i18n: duplicate,
+                }
+          - label: Nomes dos Grupos de Parceiros
+            name: partnerGroups
+            widget: object
+            fields:
+              - { label: Patrocinadores, name: sponsors, widget: string }
+              - {
+                  label: Parceiros Institucionais,
+                  name: institutional,
+                  widget: string,
+                }
+              - { label: Apoiadores, name: supporters, widget: string }
+          - label: Depoimentos de Parceiros
+            name: testimonials
+            widget: list
+            required: false
+            fields:
+              - { label: Depoimento, name: quote, widget: text }
+              - { label: Nome do Autor, name: author, widget: string }
+              - { label: Cargo, name: role, widget: string, required: false }
+              - { label: Empresa / Organização, name: company, widget: string }
+          - label: Formulário de Contato Corporativo
+            name: form
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Texto Introdutório, name: intro, widget: text }
+
+      # Donate
+      - name: donate
+        label: Como Doar
+        file: src/content/pages/{locale}/donate.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Introdução, name: intro, widget: text }
+          - label: Seção PIX
+            name: pix
+            widget: object
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Explicação, name: body, widget: text }
+              - {
+                  label: Nota de Segurança,
+                  name: securityNote,
+                  widget: string,
+                  required: false,
+                }
+          - label: Seção Crowdfunding / Financiamento Coletivo
+            name: crowdfunding
+            widget: object
+            required: false
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Descrição, name: body, widget: text }
+              - { label: Rótulo do Botão, name: buttonLabel, widget: string }
+          - label: Seção Doação Internacional / Grants
+            name: international
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string, required: false }
+              - { label: Título, name: title, widget: string }
+              - { label: Explicação, name: body, widget: text }
+              - { label: Rótulo do Botão, name: ctaLabel, widget: string }
+              - { label: Link do Botão, name: ctaHref, widget: string }
+          - label: Exemplos Concretos de Impacto
+            name: impact
+            widget: list
+            fields:
+              - {
+                  label: 'Valor (ex: R$ 50 ou US$ 50)',
+                  name: amount,
+                  widget: string,
+                }
+              - {
+                  label: O que esse valor viabiliza,
+                  name: description,
+                  widget: text,
+                }
+
+      # Get Involved
+      - name: get-involved
+        label: Participe & Voluntariado
+        file: src/content/pages/{locale}/get-involved.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Introdução, name: intro, widget: text }
+          - label: Formas de Participar
+            name: ways
+            widget: list
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Descrição, name: description, widget: text }
+              - label: Botão de Ação
+                name: cta
+                widget: object
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+
+      # Transparency
+      - name: transparency
+        label: Transparência & Governança
+        file: src/content/pages/{locale}/transparency.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Introdução, name: intro, widget: text }
+          - {
+              label: Notas de Governança / Estatuto,
+              name: governanceNotes,
+              widget: text,
+              required: false,
+            }
+          - label: Relatórios & Prestações de Contas
+            name: reports
+            widget: list
+            fields:
+              - {
+                  label: Ano de Referência,
+                  name: year,
+                  widget: number,
+                  value_type: int,
+                  i18n: duplicate,
+                }
+              - { label: Título do Documento, name: title, widget: string }
+              - {
+                  label: 'Categoria (ex: Relatório Anual, DRE)',
+                  name: category,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Arquivo PDF,
+                  name: file,
+                  widget: file,
+                  i18n: duplicate,
+                }
+
+      # Contact
+      - name: contact
+        label: Contato Institucional
+        file: src/content/pages/{locale}/contact.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Introdução, name: intro, widget: text }
+          - {
+              label: Título do Local de Treino,
+              name: locationTitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Endereço / Referência do Ponto na Praia,
+              name: locationText,
+              widget: text,
+              required: false,
+            }
+
+      # Blog Index Page
+      - name: blog
+        label: Página de Notícias (Blog)
+        file: src/content/pages/{locale}/blog.yaml
+        fields:
+          - { label: Título da Página, name: title, widget: string }
+          - { label: Introdução, name: intro, widget: text }
+
+  # 2. Organizações (Patrocinadores, Parceiros Institucionais e Apoiadores)
+  - name: organizations
+    label: Parceiros e Apoiadores
+    folder: src/content/organizations
+    create: true
+    i18n: false
+    slug: '{{slug}}'
+    fields:
+      - { label: Nome da Organização, name: name, widget: string }
+      - { label: Logo (SVG ou PNG), name: logo, widget: image }
+      - { label: Website Oficial, name: url, widget: string, required: false }
+      - label: Categoria
+        name: category
+        widget: select
+        options:
+          - { label: Patrocinador, value: sponsor }
+          - {
+              label: Parceiro Institucional / Cultural,
+              value: institutional_partner,
+            }
+          - { label: Apoiador, value: supporter }
+      - label: Cota de Patrocínio (apenas para categoria Patrocinador)
+        name: tier
+        widget: select
+        required: false
+        options:
+          - { label: Mantenedor, value: mantenedor }
+          - { label: Cota Ouro, value: ouro }
+          - { label: Cota Prata, value: prata }
+          - { label: Apoiador, value: apoiador }
+      - { label: Ativo no Site?, name: active, widget: boolean, default: true }
+      - {
+          label: Ordem de Exibição,
+          name: order,
+          widget: number,
+          default: 0,
+          value_type: int,
+        }
+
+  # 3. Blog / Notícias
+  - name: blog
+    label: Blog e Notícias
+    folder: src/content/blog/{locale}
+    create: true
+    i18n: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Título do Artigo, name: title, widget: string }
+      - { label: Resumo / Descrição SEO, name: description, widget: text }
+      - {
+          label: Data de Publicação,
+          name: pubDate,
+          widget: datetime,
+          i18n: duplicate,
+        }
+      - {
+          label: Data de Atualização,
+          name: updatedDate,
+          widget: datetime,
+          required: false,
+          i18n: duplicate,
+        }
+      - {
+          label: Imagem de Capa,
+          name: cover,
+          widget: image,
+          required: false,
+          i18n: duplicate,
+        }
+      - {
+          label: Texto Alternativo da Capa,
+          name: coverAlt,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Autor(a),
+          name: author,
+          widget: string,
+          required: false,
+          default: Instituto Levante,
+          i18n: duplicate,
+        }
+      - {
+          label: Rascunho? (não publicar),
+          name: draft,
+          widget: boolean,
+          default: false,
+          i18n: duplicate,
+        }
+      - { label: Conteúdo do Artigo, name: body, widget: markdown }
+
+  # 4. Configurações Globais & PIX
+  - name: settings
+    label: Configurações Gerais & PIX
+    delete: false
+    i18n: false
+    files:
+      - name: general
+        label: Dados de Contato e PIX
+        file: src/data/settings.json
+        fields:
+          - { label: Nome Oficial da Instituição, name: name, widget: string }
+          - { label: E-mail Geral, name: email, widget: string }
+          - {
+              label: E-mail de Parcerias,
+              name: partnershipsEmail,
+              widget: string,
+            }
+          - { label: Telefone / WhatsApp, name: phone, widget: string }
+          - {
+              label: Endereço Físico / Ponto na Praia,
+              name: address,
+              widget: string,
+            }
+          - {
+              label: Horário das Aulas de Vôlei,
+              name: classSchedule,
+              widget: string,
+            }
+          - { label: CNPJ, name: cnpj, widget: string }
+          - label: Redes Sociais
+            name: socials
+            widget: object
+            fields:
+              - {
+                  label: Instagram (URL completa),
+                  name: instagram,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: LinkedIn (URL completa),
+                  name: linkedin,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: YouTube (URL completa),
+                  name: youtube,
+                  widget: string,
+                  required: false,
+                }
+          - {
+              label: Link de Crowdfunding (Benfeitoria / Vakinha - deixe vazio se não houver campanha ativa),
+              name: crowdfundingUrl,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Nome da Plataforma de Financiamento Coletivo,
+              name: crowdfundingPlatform,
+              widget: string,
+              required: false,
+              default: Vakinha,
+            }
+          - { label: Chave PIX, name: pixKey, widget: string }
+          - label: Tipo da Chave PIX
+            name: pixKeyType
+            widget: select
+            options:
+              - { label: E-mail, value: email }
+              - { label: CNPJ, value: cnpj }
+              - { label: Telefone, value: phone }
+              - { label: Chave Aleatória, value: random }
+          - {
+              label: Nome do Titular PIX (máximo 25 caracteres,
+              sem acentos),
+              name: pixReceiverName,
+              widget: string,
+            }
+          - {
+              label: Cidade do Titular PIX (máximo 15 caracteres,
+              sem acentos),
+              name: pixCity,
+              widget: string,
+            }
+          - {
+              label: Imagem QR Code PIX (opcional,
+              sobrepõe QR gerado automaticamente),
+              name: pixQrImage,
+              widget: image,
+              required: false,
+            }

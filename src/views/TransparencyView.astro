@@ -28,11 +28,11 @@ const data = pageEntry.data;
     <div class="mx-auto max-w-4xl space-y-10">
       {
         data.governanceNotes && (
-          <div class="rounded-2xl border border-mint-400/40 bg-mint-50 p-6">
-            <p class="text-sm font-medium leading-relaxed text-ink">
+          <div class="border-mint-400/40 bg-mint-50 rounded-2xl border p-6">
+            <p class="text-ink text-sm leading-relaxed font-medium">
               {data.governanceNotes}
             </p>
-            <p class="mt-2 text-xs font-extrabold text-mint-800">
+            <p class="text-mint-800 mt-2 text-xs font-extrabold">
               CNPJ: {settings.cnpj} • {settings.name}
             </p>
           </div>
@@ -40,7 +40,9 @@ const data = pageEntry.data;
       }
 
       <div>
-        <h2 class="mb-6 text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
+        <h2
+          class="text-ink mb-6 text-xl font-extrabold tracking-tight sm:text-2xl"
+        >
           {
             locale === 'pt-br'
               ? 'Documentos, Relatórios e Certidões'

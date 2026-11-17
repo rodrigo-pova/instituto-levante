@@ -1,10 +1,10 @@
 ---
-title: "Dia de Teatro: quando o espetáculo abre novos horizontes para nossos alunos"
-description: "Através de parceria institucional com companhias de teatro cariocas, 45 crianças do Levante assistiram a um musical pela primeira vez."
+title: 'Dia de Teatro: quando o espetáculo abre novos horizontes para nossos alunos'
+description: 'Através de parceria institucional com companhias de teatro cariocas, 45 crianças do Levante assistiram a um musical pela primeira vez.'
 pubDate: 2024-11-05
-author: "Camila Ribeiro"
-cover: "/uploads/blog/visita-teatro.jpg"
-coverAlt: "Alunos do Instituto Levante reunidos no hall do teatro"
+author: 'Camila Ribeiro'
+cover: '/uploads/blog/visita-teatro.jpg'
+coverAlt: 'Alunos do Instituto Levante reunidos no hall do teatro'
 draft: false
 ---
 

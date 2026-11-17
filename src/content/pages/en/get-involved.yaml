@@ -1,24 +1,24 @@
-title: "Get Involved with Instituto Levante"
-intro: "There are countless ways to join our mission — from volunteer coaching to book drives and cultural event partnerships."
+title: 'Get Involved with Instituto Levante'
+intro: 'There are countless ways to join our mission — from volunteer coaching to book drives and cultural event partnerships.'
 
 ways:
-  - title: "Athletic & Educational Volunteering"
-    description: "Are you a student or professional in Physical Education, Pedagogy, Nutrition, or Social Work? Lend your skills to our beach training sessions and reading circles."
+  - title: 'Athletic & Educational Volunteering'
+    description: 'Are you a student or professional in Physical Education, Pedagogy, Nutrition, or Social Work? Lend your skills to our beach training sessions and reading circles.'
     cta:
-      label: "Become a Volunteer"
-      href: "/en/contact/"
-  - title: "Donate Books to Our Library"
+      label: 'Become a Volunteer'
+      href: '/en/contact/'
+  - title: 'Donate Books to Our Library'
     description: "We welcome children's literature, young adult novels, comics, and educational materials to refresh our community lending collection."
     cta:
-      label: "Donate Books"
-      href: "/en/contact/"
-  - title: "Cultural & Arts Invitations"
-    description: "Do you represent a theater company, museum, orchestra, or cinema? Partner with us to invite our classes for inspiring, barrier-free cultural outings."
+      label: 'Donate Books'
+      href: '/en/contact/'
+  - title: 'Cultural & Arts Invitations'
+    description: 'Do you represent a theater company, museum, orchestra, or cinema? Partner with us to invite our classes for inspiring, barrier-free cultural outings.'
     cta:
-      label: "Partner with Us"
-      href: "/en/contact/"
-  - title: "Financial & Corporate Sponsorship"
-    description: "Make an individual donation via PIX/Wire or engage your corporation as an official sponsor through grant agreements or incentive programs."
+      label: 'Partner with Us'
+      href: '/en/contact/'
+  - title: 'Financial & Corporate Sponsorship'
+    description: 'Make an individual donation via PIX/Wire or engage your corporation as an official sponsor through grant agreements or incentive programs.'
     cta:
-      label: "Explore Partnerships"
-      href: "/en/partners/"
+      label: 'Explore Partnerships'
+      href: '/en/partners/'

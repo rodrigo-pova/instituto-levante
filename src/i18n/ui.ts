@@ -40,7 +40,8 @@ export const ui = {
     'blog.updatedOn': 'Atualizado em',
     'blog.by': 'por',
     'blog.readTime': 'min de leitura',
-    'blog.availableInOtherLang': 'Este artigo também está disponível em Inglês.',
+    'blog.availableInOtherLang':
+      'Este artigo também está disponível em Inglês.',
     'blog.empty': 'Nenhuma publicação encontrada no momento.',
 
     // Forms
@@ -134,7 +135,8 @@ export const ui = {
 
     // 404
     '404.title': 'Page not found',
-    '404.description': 'The page you are looking for does not exist or has been moved.',
+    '404.description':
+      'The page you are looking for does not exist or has been moved.',
     '404.backHome': 'Back to homepage',
   },
 } as const satisfies Record<string, Record<string, string>>;

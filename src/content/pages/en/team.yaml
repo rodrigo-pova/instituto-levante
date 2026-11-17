@@ -1,70 +1,70 @@
-title: "Our Team"
-intro: "Meet the passionate team behind Instituto Levante — from founders and lead coaches to youth tutors and support staff."
+title: 'Our Team'
+intro: 'Meet the passionate team behind Instituto Levante — from founders and lead coaches to youth tutors and support staff.'
 
 alumniSpotlight:
   enabled: true
-  badge: "From the Sand to the Staff"
-  title: "The inspiring journey of youth who grew up with us"
-  story: "Our work becomes truly sustainable when the young people we serve step into leadership roles. At Levante, we are honored to have program alumni working directly as tutors and educators, paying forward their experience and motivating incoming students with their personal stories."
-  quote: "I first walked onto this sand without knowing how to serve a volleyball and often without having had breakfast. Standing here today coaching and mentoring these kids is the greatest achievement of my life."
-  memberName: "Lucas Nascimento"
-  memberRole: "Youth Coach & Tutor • Alumni (Class of 2020)"
+  badge: 'From the Sand to the Staff'
+  title: 'The inspiring journey of youth who grew up with us'
+  story: 'Our work becomes truly sustainable when the young people we serve step into leadership roles. At Levante, we are honored to have program alumni working directly as tutors and educators, paying forward their experience and motivating incoming students with their personal stories.'
+  quote: 'I first walked onto this sand without knowing how to serve a volleyball and often without having had breakfast. Standing here today coaching and mentoring these kids is the greatest achievement of my life.'
+  memberName: 'Lucas Nascimento'
+  memberRole: 'Youth Coach & Tutor • Alumni (Class of 2020)'
 
 groups:
-  founder: "Founders"
-  teacher: "Teachers"
-  tutor: "Tutors"
-  staff: "Staff"
+  founder: 'Founders'
+  teacher: 'Teachers'
+  tutor: 'Tutors'
+  staff: 'Staff'
 
 members:
-  - name: "Mariana Souza"
-    role: "Co-founder & Executive Director"
-    group: "founder"
-    photo: "/uploads/team-mariana.jpg"
-    photoAlt: "Portrait of Mariana Souza, co-founder"
-    bio: "Former competitive beach volleyball player and social sector manager, guiding strategic vision and institutional sustainability since 2020."
+  - name: 'Mariana Souza'
+    role: 'Co-founder & Executive Director'
+    group: 'founder'
+    photo: '/uploads/team-mariana.jpg'
+    photoAlt: 'Portrait of Mariana Souza, co-founder'
+    bio: 'Former competitive beach volleyball player and social sector manager, guiding strategic vision and institutional sustainability since 2020.'
     isAlumni: false
     order: 1
 
-  - name: "Rodrigo Carvalho"
-    role: "Co-founder & Athletics Director"
-    group: "founder"
-    photo: ""
-    bio: "Physical Education professional specializing in sports pedagogy and youth social development through athletics."
+  - name: 'Rodrigo Carvalho'
+    role: 'Co-founder & Athletics Director'
+    group: 'founder'
+    photo: ''
+    bio: 'Physical Education professional specializing in sports pedagogy and youth social development through athletics.'
     isAlumni: false
     order: 2
 
-  - name: "Camila Ribeiro"
-    role: "Head Volleyball Educator"
-    group: "teacher"
-    photo: "/uploads/team-camila.jpg"
-    photoAlt: "Photo of Teacher Camila Ribeiro"
-    bio: "Leads on-court pedagogical planning, motor skills conditioning, and cooperative games across different age brackets."
+  - name: 'Camila Ribeiro'
+    role: 'Head Volleyball Educator'
+    group: 'teacher'
+    photo: '/uploads/team-camila.jpg'
+    photoAlt: 'Photo of Teacher Camila Ribeiro'
+    bio: 'Leads on-court pedagogical planning, motor skills conditioning, and cooperative games across different age brackets.'
     isAlumni: false
     order: 3
 
-  - name: "Lucas Nascimento"
-    role: "Youth Coach & Library Assistant"
-    group: "tutor"
-    photo: "/uploads/team-lucas.jpg"
-    photoAlt: "Portrait of Lucas Nascimento, tutor and alumni"
-    bio: "Joined Levante at age 13 as a student. Today an undergraduate in Physical Education, assisting bi-weekly practices and reading circles."
+  - name: 'Lucas Nascimento'
+    role: 'Youth Coach & Library Assistant'
+    group: 'tutor'
+    photo: '/uploads/team-lucas.jpg'
+    photoAlt: 'Portrait of Lucas Nascimento, tutor and alumni'
+    bio: 'Joined Levante at age 13 as a student. Today an undergraduate in Physical Education, assisting bi-weekly practices and reading circles.'
     isAlumni: true
-    alumniNote: "Alumni • Class of 2020"
+    alumniNote: 'Alumni • Class of 2020'
     order: 4
 
-  - name: "Beatriz Lima"
-    role: "Nutritionist & Meal Program Lead"
-    group: "staff"
-    photo: ""
-    bio: "Curates healthy, balanced menus for post-training meals and leads nutritional workshops for students and families."
+  - name: 'Beatriz Lima'
+    role: 'Nutritionist & Meal Program Lead'
+    group: 'staff'
+    photo: ''
+    bio: 'Curates healthy, balanced menus for post-training meals and leads nutritional workshops for students and families.'
     isAlumni: false
     order: 5
 
-  - name: "André Silveira"
-    role: "Operations & Partnerships Coordinator"
-    group: "staff"
-    photo: ""
-    bio: "Manages session logistics, financial compliance, cultural outing transit, and sponsor relationship reporting."
+  - name: 'André Silveira'
+    role: 'Operations & Partnerships Coordinator'
+    group: 'staff'
+    photo: ''
+    bio: 'Manages session logistics, financial compliance, cultural outing transit, and sponsor relationship reporting.'
     isAlumni: false
     order: 6

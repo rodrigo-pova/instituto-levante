@@ -16,13 +16,20 @@ describe('i18n infrastructure', () => {
     expect(getLocaleFromUrl('/en/')).toBe('en');
     expect(getLocaleFromUrl('/sobre/')).toBe('pt-br');
     expect(getLocaleFromUrl('/')).toBe('pt-br');
-    expect(getLocaleFromUrl(new URL('https://institutolevante.org.br/en/team/'))).toBe('en');
-    expect(getLocaleFromUrl(new URL('https://institutolevante.org.br/equipe/'))).toBe('pt-br');
+    expect(
+      getLocaleFromUrl(new URL('https://institutolevante.org.br/en/team/')),
+    ).toBe('en');
+    expect(
+      getLocaleFromUrl(new URL('https://institutolevante.org.br/equipe/')),
+    ).toBe('pt-br');
   });
 
   it('guarantees bidirectional route symmetry for every route key', () => {
     for (const [key, localizedRoutes] of Object.entries(routes)) {
-      expect(localizedRoutes['pt-br'], `pt-br route missing for ${key}`).toBeDefined();
+      expect(
+        localizedRoutes['pt-br'],
+        `pt-br route missing for ${key}`,
+      ).toBeDefined();
       expect(localizedRoutes.en, `en route missing for ${key}`).toBeDefined();
       expect(localizedRoutes['pt-br'].endsWith('/')).toBe(true);
       expect(localizedRoutes.en.endsWith('/')).toBe(true);
@@ -50,8 +57,12 @@ describe('i18n infrastructure', () => {
     expect(path('home', 'en')).toBe('/en/');
     expect(path('team', 'pt-br')).toBe('/equipe/');
     expect(path('team', 'en')).toBe('/en/team/');
-    expect(path('post', 'pt-br', 'torneio-4-anos')).toBe('/blog/torneio-4-anos/');
-    expect(path('post', 'en', 'torneio-4-anos')).toBe('/en/blog/torneio-4-anos/');
+    expect(path('post', 'pt-br', 'torneio-4-anos')).toBe(
+      '/blog/torneio-4-anos/',
+    );
+    expect(path('post', 'en', 'torneio-4-anos')).toBe(
+      '/en/blog/torneio-4-anos/',
+    );
   });
 
   it('generates symmetric alternate links for SEO hreflang and language switcher', () => {

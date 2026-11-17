@@ -19,10 +19,12 @@ const t = useTranslations(locale);
 const href = path('post', locale, slug);
 ---
 
-<article class="group flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-surface shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md">
+<article
+  class="group border-ink/10 bg-surface flex flex-col overflow-hidden rounded-2xl border shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md"
+>
   {
     cover && (
-      <a href={href} class="block overflow-hidden bg-surface-warm">
+      <a href={href} class="bg-surface-warm block overflow-hidden">
         <img
           src={cover}
           alt={coverAlt || title}
@@ -37,7 +39,7 @@ const href = path('post', locale, slug);
   }
   <div class="flex flex-1 flex-col justify-between p-6">
     <div>
-      <div class="flex items-center gap-2 text-xs font-semibold text-mint-700">
+      <div class="text-mint-700 flex items-center gap-2 text-xs font-semibold">
         <time datetime={pubDate.toISOString()}>
           {formatDate(pubDate, locale)}
         </time>
@@ -50,21 +52,26 @@ const href = path('post', locale, slug);
           )
         }
       </div>
-      <h3 class="mt-2.5 text-xl font-extrabold tracking-tight text-ink group-hover:text-coral-600">
+      <h3
+        class="text-ink group-hover:text-coral-600 mt-2.5 text-xl font-extrabold tracking-tight"
+      >
         <a href={href}>{title}</a>
       </h3>
-      <p class="mt-2.5 line-clamp-3 text-sm leading-relaxed text-ink-muted">
+      <p class="text-ink-muted mt-2.5 line-clamp-3 text-sm leading-relaxed">
         {description}
       </p>
     </div>
 
-    <div class="mt-5 pt-3 border-t border-ink/5">
+    <div class="border-ink/5 mt-5 border-t pt-3">
       <a
         href={href}
-        class="inline-flex items-center gap-1.5 text-sm font-extrabold text-coral-600 group-hover:text-coral-700"
+        class="text-coral-600 group-hover:text-coral-700 inline-flex items-center gap-1.5 text-sm font-extrabold"
       >
         <span>{t('action.readMore')}</span>
-        <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+        <span
+          aria-hidden="true"
+          class="transition-transform group-hover:translate-x-0.5">→</span
+        >
       </a>
     </div>
   </div>

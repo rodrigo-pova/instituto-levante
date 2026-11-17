@@ -33,7 +33,7 @@ const subjects =
   method="POST"
   action="/api/forms/contato"
   data-track="contact-submit"
-  class="space-y-5 rounded-3xl border border-ink/10 bg-surface p-6 shadow-sm sm:p-8"
+  class="border-ink/10 bg-surface space-y-5 rounded-3xl border p-6 shadow-sm sm:p-8"
 >
   <input type="hidden" name="form-name" value="contato" />
   <input type="hidden" name="locale" value={locale} />
@@ -48,7 +48,10 @@ const subjects =
 
   <div class="grid gap-5 sm:grid-cols-2">
     <div>
-      <label for="contact-name" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      <label
+        for="contact-name"
+        class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+      >
         {t('form.name')} *
       </label>
       <input
@@ -56,12 +59,15 @@ const subjects =
         name="name"
         type="text"
         required
-        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
       />
     </div>
 
     <div>
-      <label for="contact-email" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      <label
+        for="contact-email"
+        class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+      >
         {t('form.email')} *
       </label>
       <input
@@ -69,33 +75,39 @@ const subjects =
         name="email"
         type="email"
         required
-        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
       />
     </div>
   </div>
 
   <div class="grid gap-5 sm:grid-cols-2">
     <div>
-      <label for="contact-phone" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      <label
+        for="contact-phone"
+        class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+      >
         {t('form.phone')}
       </label>
       <input
         id="contact-phone"
         name="phone"
         type="tel"
-        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
       />
     </div>
 
     <div>
-      <label for="contact-subject" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+      <label
+        for="contact-subject"
+        class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+      >
         {t('form.subject')} *
       </label>
       <select
         id="contact-subject"
         name="subject"
         required
-        class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+        class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
       >
         {subjects.map((subj) => <option value={subj}>{subj}</option>)}
       </select>
@@ -103,7 +115,10 @@ const subjects =
   </div>
 
   <div>
-    <label for="contact-message" class="block text-xs font-extrabold uppercase tracking-wide text-ink">
+    <label
+      for="contact-message"
+      class="text-ink block text-xs font-extrabold tracking-wide uppercase"
+    >
       {t('form.message')} *
     </label>
     <textarea
@@ -111,13 +126,13 @@ const subjects =
       name="message"
       rows="4"
       required
-      class="mt-1.5 w-full rounded-xl border border-ink/20 bg-surface-warm px-4 py-3 text-sm text-ink focus:border-mint-700 focus:bg-surface focus:outline-hidden"
+      class="border-ink/20 bg-surface-warm text-ink focus:border-mint-700 focus:bg-surface mt-1.5 w-full rounded-xl border px-4 py-3 text-sm focus:outline-hidden"
     ></textarea>
   </div>
 
   <button
     type="submit"
-    class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral-600 px-7 py-3.5 text-sm font-extrabold text-white shadow-xs transition-colors hover:bg-coral-700"
+    class="bg-coral-600 hover:bg-coral-700 inline-flex cursor-pointer items-center gap-2 rounded-full px-7 py-3.5 text-sm font-extrabold text-white shadow-xs transition-colors"
   >
     <span>{t('action.sendMessage')}</span>
     <span aria-hidden="true">→</span>

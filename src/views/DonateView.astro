@@ -67,11 +67,9 @@ const data = pageEntry.data;
   <!-- Impact Examples -->
   <Section
     tag={locale === 'pt-br' ? 'Impacto Direto' : 'Direct Impact'}
-    title={
-      locale === 'pt-br'
-        ? 'O que a sua doação torna possível'
-        : 'What your contribution makes possible'
-    }
+    title={locale === 'pt-br'
+      ? 'O que a sua doação torna possível'
+      : 'What your contribution makes possible'}
     bg="warm"
   >
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -84,7 +82,7 @@ const data = pageEntry.data;
             'bg-lilac-400 text-ink',
           ];
           return (
-            <div class="flex flex-col justify-between rounded-2xl border border-ink/10 bg-surface p-6 shadow-2xs">
+            <div class="border-ink/10 bg-surface flex flex-col justify-between rounded-2xl border p-6 shadow-2xs">
               <div>
                 <span
                   class:list={[
@@ -94,7 +92,7 @@ const data = pageEntry.data;
                 >
                   {item.amount}
                 </span>
-                <p class="mt-4 text-sm leading-relaxed text-ink-muted">
+                <p class="text-ink-muted mt-4 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -105,15 +103,17 @@ const data = pageEntry.data;
     </div>
 
     <!-- Corporate Sponsorship Cross-Link -->
-    <div class="mt-12 rounded-3xl border border-mint-400/40 bg-mint-50 p-6 text-center sm:p-8">
-      <h3 class="text-lg font-extrabold text-ink sm:text-xl">
+    <div
+      class="border-mint-400/40 bg-mint-50 mt-12 rounded-3xl border p-6 text-center sm:p-8"
+    >
+      <h3 class="text-ink text-lg font-extrabold sm:text-xl">
         {
           locale === 'pt-br'
             ? 'Representa uma empresa ou fundação?'
             : 'Representing a corporation or philanthropic foundation?'
         }
       </h3>
-      <p class="mx-auto mt-2 max-w-2xl text-sm text-ink-muted">
+      <p class="text-ink-muted mx-auto mt-2 max-w-2xl text-sm">
         {
           locale === 'pt-br'
             ? 'Conheça nossas cotas de patrocínio corporativo e saiba como direcionar até 2% do IRPJ devido via Lei de Incentivo ao Esporte.'
@@ -123,10 +123,14 @@ const data = pageEntry.data;
       <div class="mt-5">
         <a
           href={path('partners', locale)}
-          class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-6 py-3 text-xs font-extrabold text-white transition-colors hover:bg-coral-700"
+          class="bg-coral-600 hover:bg-coral-700 inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-extrabold text-white transition-colors"
         >
           <span>
-            {locale === 'pt-br' ? 'Ver Parcerias Corporativas' : 'Explore Corporate Partnerships'}
+            {
+              locale === 'pt-br'
+                ? 'Ver Parcerias Corporativas'
+                : 'Explore Corporate Partnerships'
+            }
           </span>
           <span aria-hidden="true">→</span>
         </a>

@@ -28,45 +28,54 @@ const isActive = (key: RouteKey) =>
   routeKey === key || (key === 'blog' && routeKey === 'post');
 ---
 
-<header class="sticky top-0 z-40 border-b border-ink/10 bg-surface/95 backdrop-blur-md">
-  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
+<header
+  class="border-ink/10 bg-surface/95 sticky top-0 z-40 border-b backdrop-blur-md"
+>
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
+  >
     <!-- Brand Logo -->
     <a
       href={path('home', locale)}
-      class="group flex items-center gap-3 text-ink focus-visible:rounded-lg"
+      class="group text-ink flex items-center gap-3 focus-visible:rounded-lg"
     >
       <span
-        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral-500 text-white shadow-xs transition-transform group-hover:scale-105"
+        class="bg-coral-500 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white shadow-xs transition-transform group-hover:scale-105"
         aria-hidden="true"
       >
         <svg viewBox="0 0 32 32" class="h-6 w-6" fill="none">
-          <circle cx="16" cy="13" r="6.5" fill="#F6C944" />
+          <circle cx="16" cy="13" r="6.5" fill="#F6C944"></circle>
           <path
             d="M5 23C10 19.5 22 19.5 27 23"
             stroke="#5BC6B5"
             stroke-width="3"
-            stroke-linecap="round"
-          />
+            stroke-linecap="round"></path>
           <path
             d="M8 27C13 24.5 19 24.5 24 27"
             stroke="#FFFFFF"
             stroke-width="2.5"
-            stroke-linecap="round"
-          />
+            stroke-linecap="round"></path>
         </svg>
       </span>
       <span class="flex flex-col">
-        <span class="text-lg font-extrabold tracking-tight leading-none text-ink">
+        <span
+          class="text-ink text-lg leading-none font-extrabold tracking-tight"
+        >
           {settings.name}
         </span>
-        <span class="mt-0.5 text-[11px] font-semibold tracking-wider uppercase text-mint-700">
+        <span
+          class="text-mint-700 mt-0.5 text-[11px] font-semibold tracking-wider uppercase"
+        >
           {locale === 'pt-br' ? 'Esporte & Cidadania' : 'Sports & Citizenship'}
         </span>
       </span>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav aria-label="Main" class="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
+    <nav
+      aria-label="Main"
+      class="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2"
+    >
       {
         navItems.map((item) => {
           const active = isActive(item.key);
@@ -93,7 +102,7 @@ const isActive = (key: RouteKey) =>
       <LanguageSwitcher locale={locale} alternates={alternates} />
       <a
         href={path('donate', locale)}
-        class="inline-flex items-center gap-1.5 rounded-full bg-sun-400 px-5 py-2.5 text-sm font-extrabold text-ink shadow-xs transition-all hover:bg-sun-500 hover:shadow-sm"
+        class="bg-sun-400 text-ink hover:bg-sun-500 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-extrabold shadow-xs transition-all hover:shadow-sm"
       >
         <span aria-hidden="true">♥</span>
         <span>{t('nav.donate')}</span>
@@ -105,13 +114,13 @@ const isActive = (key: RouteKey) =>
       <LanguageSwitcher locale={locale} alternates={alternates} />
       <a
         href={path('donate', locale)}
-        class="inline-flex items-center rounded-full bg-sun-400 px-3.5 py-1.5 text-xs font-extrabold text-ink shadow-xs"
+        class="bg-sun-400 text-ink inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-extrabold shadow-xs"
       >
         {t('nav.donate')}
       </a>
       <details class="group relative">
         <summary
-          class="flex cursor-pointer list-none items-center justify-center rounded-lg border border-ink/15 p-2 text-ink hover:bg-surface-warm [&::-webkit-details-marker]:hidden"
+          class="border-ink/15 text-ink hover:bg-surface-warm flex cursor-pointer list-none items-center justify-center rounded-lg border p-2 [&::-webkit-details-marker]:hidden"
           aria-label={t('nav.menu')}
         >
           <svg
@@ -121,7 +130,10 @@ const isActive = (key: RouteKey) =>
             stroke="currentColor"
             stroke-width="2"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
           <svg
             class="hidden h-5 w-5 group-open:block"
@@ -130,11 +142,14 @@ const isActive = (key: RouteKey) =>
             stroke="currentColor"
             stroke-width="2"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </summary>
         <div
-          class="absolute right-0 mt-2 w-64 origin-top-right rounded-2xl border border-ink/10 bg-surface p-3 shadow-xl"
+          class="border-ink/10 bg-surface absolute right-0 mt-2 w-64 origin-top-right rounded-2xl border p-3 shadow-xl"
         >
           <nav aria-label="Mobile" class="flex flex-col gap-1">
             {
@@ -156,10 +171,10 @@ const isActive = (key: RouteKey) =>
                 );
               })
             }
-            <hr class="my-1.5 border-ink/10" />
+            <hr class="border-ink/10 my-1.5" />
             <a
               href={path('getInvolved', locale)}
-              class="rounded-lg px-3 py-2 text-sm font-semibold text-ink-muted hover:bg-surface-warm hover:text-ink"
+              class="text-ink-muted hover:bg-surface-warm hover:text-ink rounded-lg px-3 py-2 text-sm font-semibold"
             >
               {t('nav.getInvolved')}
             </a>

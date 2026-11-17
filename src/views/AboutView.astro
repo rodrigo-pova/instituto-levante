@@ -33,7 +33,7 @@ const data = pageEntry.data;
   <!-- History & Story -->
   <Section bg="white">
     <div class="mx-auto max-w-3xl">
-      <h2 class="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <h2 class="text-ink text-2xl font-extrabold tracking-tight sm:text-3xl">
         {data.story.title}
       </h2>
       <div class="mt-6">
@@ -52,20 +52,20 @@ const data = pageEntry.data;
     <div class="grid gap-6 md:grid-cols-3">
       {
         data.routine.steps.map((step, index) => (
-          <div class="flex flex-col justify-between rounded-2xl border border-mint-400/40 bg-surface p-6 shadow-xs">
+          <div class="border-mint-400/40 bg-surface flex flex-col justify-between rounded-2xl border p-6 shadow-xs">
             <div>
               <div class="flex items-center justify-between gap-2">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-coral-500 text-xs font-extrabold text-white">
+                <span class="bg-coral-500 inline-flex h-9 w-9 items-center justify-center rounded-xl text-xs font-extrabold text-white">
                   0{index + 1}
                 </span>
                 {step.time && (
-                  <span class="rounded-full bg-mint-50 px-3 py-1 text-xs font-extrabold text-mint-800">
+                  <span class="bg-mint-50 text-mint-800 rounded-full px-3 py-1 text-xs font-extrabold">
                     {step.time}
                   </span>
                 )}
               </div>
-              <h3 class="mt-4 text-lg font-extrabold text-ink">{step.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+              <h3 class="text-ink mt-4 text-lg font-extrabold">{step.title}</h3>
+              <p class="text-ink-muted mt-2 text-sm leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -92,12 +92,12 @@ const data = pageEntry.data;
           return (
             <div
               class:list={[
-                'rounded-2xl border border-ink/10 border-l-4 bg-surface-warm p-6',
+                'border-ink/10 bg-surface-warm rounded-2xl border border-l-4 p-6',
                 borders[idx % borders.length],
               ]}
             >
-              <h3 class="text-lg font-extrabold text-ink">{val.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+              <h3 class="text-ink text-lg font-extrabold">{val.title}</h3>
+              <p class="text-ink-muted mt-2 text-sm leading-relaxed">
                 {val.description}
               </p>
             </div>
@@ -109,17 +109,23 @@ const data = pageEntry.data;
     <div class="mt-12 flex flex-wrap justify-center gap-4">
       <a
         href={path('team', locale)}
-        class="inline-flex items-center gap-2 rounded-full bg-coral-600 px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-coral-700"
+        class="bg-coral-600 hover:bg-coral-700 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold text-white transition-colors"
       >
-        <span>{locale === 'pt-br' ? 'Conheça Nossa Equipe' : 'Meet Our Team'}</span>
+        <span
+          >{locale === 'pt-br' ? 'Conheça Nossa Equipe' : 'Meet Our Team'}</span
+        >
         <span aria-hidden="true">→</span>
       </a>
       <a
         href={path('transparency', locale)}
-        class="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-surface px-6 py-3 text-sm font-extrabold text-ink transition-colors hover:bg-surface-warm"
+        class="border-ink/20 bg-surface text-ink hover:bg-surface-warm inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-extrabold transition-colors"
       >
         <span>
-          {locale === 'pt-br' ? 'Relatórios de Transparência' : 'Transparency Reports'}
+          {
+            locale === 'pt-br'
+              ? 'Relatórios de Transparência'
+              : 'Transparency Reports'
+          }
         </span>
       </a>
     </div>

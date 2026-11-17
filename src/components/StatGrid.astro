@@ -24,16 +24,18 @@ const { stats } = Astro.props;
       return (
         <div
           class:list={[
-            'rounded-2xl border border-ink/10 border-t-4 bg-surface p-6 shadow-xs',
+            'border-ink/10 bg-surface rounded-2xl border border-t-4 p-6 shadow-xs',
             accents[idx % accents.length],
           ]}
         >
-          <p class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+          <p class="text-ink text-3xl font-extrabold tracking-tight sm:text-4xl">
             {stat.value}
           </p>
-          <p class="mt-2 text-sm font-bold text-ink">{stat.label}</p>
+          <p class="text-ink mt-2 text-sm font-bold">{stat.label}</p>
           {stat.sublabel && (
-            <p class="mt-1 text-xs font-medium text-ink-muted">{stat.sublabel}</p>
+            <p class="text-ink-muted mt-1 text-xs font-medium">
+              {stat.sublabel}
+            </p>
           )}
         </div>
       );

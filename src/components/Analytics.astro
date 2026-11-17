@@ -26,7 +26,10 @@ const enableAnalytics = shouldIndex && Boolean(umamiId || plausibleDomain);
 
 <script is:inline>
   document.addEventListener('click', (event) => {
-    const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+    const target =
+      event.target instanceof Element
+        ? event.target.closest('[data-track]')
+        : null;
     if (!target) return;
     const name = target.getAttribute('data-track');
     if (!name) return;

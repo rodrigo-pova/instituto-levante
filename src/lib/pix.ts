@@ -70,7 +70,10 @@ export function cleanTxid(txid?: string, maxLength: number = 25): string {
 /**
  * Normalizes PIX key based on key type or auto-detection.
  */
-export function normalizePixKey(key: string, type?: 'cnpj' | 'email' | 'phone' | 'random'): string {
+export function normalizePixKey(
+  key: string,
+  type?: 'cnpj' | 'email' | 'phone' | 'random',
+): string {
   const trimmed = key.trim();
   if (type === 'cnpj') {
     return trimmed.replace(/\D/g, '');

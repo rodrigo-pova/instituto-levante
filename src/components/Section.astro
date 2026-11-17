@@ -58,7 +58,9 @@ const bgClassMap: Record<NonNullable<Props['bg']>, string> = {
             <p
               class:list={[
                 'mt-4 text-base leading-relaxed sm:text-lg',
-                bg === 'coral' || bg === 'ink' ? 'text-white/90' : 'text-ink-muted',
+                bg === 'coral' || bg === 'ink'
+                  ? 'text-white/90'
+                  : 'text-ink-muted',
               ]}
             >
               {intro}

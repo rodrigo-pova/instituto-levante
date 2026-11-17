@@ -29,7 +29,8 @@ const fullTitle = title.includes(settings.name)
   ? title
   : `${title} | ${settings.name}`;
 const rssHref = locale === 'en' ? '/en/blog/rss.xml' : '/blog/rss.xml';
-const defaultAlt = alternates.find((a) => a.locale === 'pt-br') ?? alternates[0];
+const defaultAlt =
+  alternates.find((a) => a.locale === 'pt-br') ?? alternates[0];
 ---
 
 <meta charset="utf-8" />
@@ -39,7 +40,11 @@ const defaultAlt = alternates.find((a) => a.locale === 'pt-br') ?? alternates[0]
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 
-{(!shouldIndex || noindex) && <meta name="robots" content="noindex, nofollow" />}
+{
+  (!shouldIndex || noindex) && (
+    <meta name="robots" content="noindex, nofollow" />
+  )
+}
 
 {
   alternates.map((alt) => (

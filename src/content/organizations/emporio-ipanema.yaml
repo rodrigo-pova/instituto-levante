@@ -1,5 +1,5 @@
-name: "Padaria & Empório Ipanema"
-logo: "/uploads/logos/emporio-ipanema.svg"
-category: "supporter"
+name: 'Padaria & Empório Ipanema'
+logo: '/uploads/logos/emporio-ipanema.svg'
+category: 'supporter'
 active: true
 order: 5

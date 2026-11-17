@@ -1,10 +1,10 @@
 ---
-title: "Theater Day: How Live Performance Expands Horizons for Our Students"
-description: "Through institutional partnerships with local theater companies, 45 Levante students attended a live musical production for the very first time."
+title: 'Theater Day: How Live Performance Expands Horizons for Our Students'
+description: 'Through institutional partnerships with local theater companies, 45 Levante students attended a live musical production for the very first time.'
 pubDate: 2024-11-05
-author: "Camila Ribeiro"
-cover: "/uploads/blog/visita-teatro.jpg"
-coverAlt: "Instituto Levante students gathered in the theater lobby"
+author: 'Camila Ribeiro'
+cover: '/uploads/blog/visita-teatro.jpg'
+coverAlt: 'Instituto Levante students gathered in the theater lobby'
 draft: false
 ---
 

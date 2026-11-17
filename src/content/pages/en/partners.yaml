@@ -1,94 +1,94 @@
 hero:
-  badge: "High-Impact Partnerships"
-  title: "Empower youth through sports, literacy, and cultural opportunities"
-  subtitle: "Partner with an auditable, high-impact non-profit organization in Rio de Janeiro to drive measurable ESG and community outcomes — through direct grants, CSR sponsorships, or tax-incentive mechanisms."
+  badge: 'High-Impact Partnerships'
+  title: 'Empower youth through sports, literacy, and cultural opportunities'
+  subtitle: 'Partner with an auditable, high-impact non-profit organization in Rio de Janeiro to drive measurable ESG and community outcomes — through direct grants, CSR sponsorships, or tax-incentive mechanisms.'
   primaryCta:
-    label: "Inquire About Partnership"
-    href: "#formulario-parceria"
+    label: 'Inquire About Partnership'
+    href: '#formulario-parceria'
   mediaKitPdf:
-    label: "Download Media Kit (PDF)"
-    file: "/uploads/docs/midia-kit-instituto-levante.pdf"
+    label: 'Download Media Kit (PDF)'
+    file: '/uploads/docs/midia-kit-instituto-levante.pdf'
 
 whyPartner:
-  title: "Why Partner with Instituto Levante?"
-  intro: "Connect your organization to a transparent, community-embedded grassroots movement changing young lives."
+  title: 'Why Partner with Instituto Levante?'
+  intro: 'Connect your organization to a transparent, community-embedded grassroots movement changing young lives.'
   items:
-    - title: "Direct, Measurable Social Impact"
-      body: "100% of your contributions go straight to ground-level operations: nourishing post-class meals, sports gear, library books, and cultural excursions."
-    - title: "Strategic ESG & UN SDG Alignment"
-      body: "Advance Sustainable Development Goals: Good Health & Well-being (SDG 3), Quality Education (SDG 4), and Reduced Inequalities (SDG 10)."
-    - title: "Meaningful Brand Visibility"
-      body: "Prominent placement on student training jerseys, on-site beach banners, digital storytelling, press releases, and our annual impact report."
-    - title: "Rigorous Governance & Grant Reporting"
-      body: "Transparent financial management, audited records, and detailed bi-annual impact tracking designed for global foundation standards."
+    - title: 'Direct, Measurable Social Impact'
+      body: '100% of your contributions go straight to ground-level operations: nourishing post-class meals, sports gear, library books, and cultural excursions.'
+    - title: 'Strategic ESG & UN SDG Alignment'
+      body: 'Advance Sustainable Development Goals: Good Health & Well-being (SDG 3), Quality Education (SDG 4), and Reduced Inequalities (SDG 10).'
+    - title: 'Meaningful Brand Visibility'
+      body: 'Prominent placement on student training jerseys, on-site beach banners, digital storytelling, press releases, and our annual impact report.'
+    - title: 'Rigorous Governance & Grant Reporting'
+      body: 'Transparent financial management, audited records, and detailed bi-annual impact tracking designed for global foundation standards.'
 
 incentiveFocus:
-  badge: "Global Grants & Tax Incentives"
-  title: "International Grants & Brazilian Sports Incentive Law"
-  body: "Whether your organization is a multinational corporation looking to allocate Brazilian corporate tax (under Lei de Incentivo ao Esporte) or an international philanthropic fund providing direct grants, we offer comprehensive compliance, English reporting, and dedicated fund management."
+  badge: 'Global Grants & Tax Incentives'
+  title: 'International Grants & Brazilian Sports Incentive Law'
+  body: 'Whether your organization is a multinational corporation looking to allocate Brazilian corporate tax (under Lei de Incentivo ao Esporte) or an international philanthropic fund providing direct grants, we offer comprehensive compliance, English reporting, and dedicated fund management.'
   steps:
-    - number: "01"
-      title: "Grant or Mechanism Alignment"
-      description: "We assess mutual objectives — whether allocating corporate income tax (IRPJ 2% deduction) or funding thematic programs (nutrition, literacy, or athletic gear)."
-    - number: "02"
-      title: "Formal Agreement & Wire Coordination"
-      description: "Execution of partnership agreements and transparent fund routing via dedicated bank accounts monitored by official oversight bodies."
-    - number: "03"
-      title: "Operational Rollout"
-      description: "Your support directly enables weekly sessions, meal distribution, community library access, and cultural trips."
-    - number: "04"
-      title: "Bilingual Impact Reporting"
-      description: "Comprehensive reporting packages including photographic documentation, attendance records, and quantifiable social metrics."
-  callout: "Are you an international foundation or CSR lead looking to fund youth development in Brazil? Our partnerships director is available for English consultation calls."
+    - number: '01'
+      title: 'Grant or Mechanism Alignment'
+      description: 'We assess mutual objectives — whether allocating corporate income tax (IRPJ 2% deduction) or funding thematic programs (nutrition, literacy, or athletic gear).'
+    - number: '02'
+      title: 'Formal Agreement & Wire Coordination'
+      description: 'Execution of partnership agreements and transparent fund routing via dedicated bank accounts monitored by official oversight bodies.'
+    - number: '03'
+      title: 'Operational Rollout'
+      description: 'Your support directly enables weekly sessions, meal distribution, community library access, and cultural trips.'
+    - number: '04'
+      title: 'Bilingual Impact Reporting'
+      description: 'Comprehensive reporting packages including photographic documentation, attendance records, and quantifiable social metrics.'
+  callout: 'Are you an international foundation or CSR lead looking to fund youth development in Brazil? Our partnerships director is available for English consultation calls.'
 
 tiers:
-  - key: "mantenedor"
-    name: "Anchor Sustaining Partner"
-    price: ""
+  - key: 'mantenedor'
+    name: 'Anchor Sustaining Partner'
+    price: ''
     highlighted: true
     benefits:
-      - "Primary logo on all student and coaching jerseys"
-      - "Exclusive branded banner along our beach training court perimeter"
-      - "Prominent recognition in all press releases, digital media, and website headers"
-      - "Two private corporate sports & community workshops for company staff"
-      - "Quarterly bespoke ESG and social impact reporting package"
-  - key: "ouro"
-    name: "Gold Partner"
-    price: ""
+      - 'Primary logo on all student and coaching jerseys'
+      - 'Exclusive branded banner along our beach training court perimeter'
+      - 'Prominent recognition in all press releases, digital media, and website headers'
+      - 'Two private corporate sports & community workshops for company staff'
+      - 'Quarterly bespoke ESG and social impact reporting package'
+  - key: 'ouro'
+    name: 'Gold Partner'
+    price: ''
     highlighted: false
     benefits:
-      - "Logo featured on the back of student jerseys"
-      - "Partner signage at annual community tournaments and festivals"
-      - "Dedicated profile across social channels and permanent logo on website"
-      - "Bi-annual quantitative progress reports"
-  - key: "prata"
-    name: "Silver Partner"
-    price: ""
+      - 'Logo featured on the back of student jerseys'
+      - 'Partner signage at annual community tournaments and festivals'
+      - 'Dedicated profile across social channels and permanent logo on website'
+      - 'Bi-annual quantitative progress reports'
+  - key: 'prata'
+    name: 'Silver Partner'
+    price: ''
     highlighted: false
     benefits:
-      - "Logo on jersey sleeves and partners page"
-      - "Designated sponsorship of library books or weekly nutrition budget"
-      - "Social Responsibility Certificate & inclusion in annual report"
-  - key: "apoiador"
-    name: "Community Supporter"
-    price: ""
+      - 'Logo on jersey sleeves and partners page'
+      - 'Designated sponsorship of library books or weekly nutrition budget'
+      - 'Social Responsibility Certificate & inclusion in annual report'
+  - key: 'apoiador'
+    name: 'Community Supporter'
+    price: ''
     highlighted: false
     benefits:
-      - "Listing on our digital partners wall"
-      - "Acknowledgment in our Annual Impact Statement"
-      - "Social media recognition"
+      - 'Listing on our digital partners wall'
+      - 'Acknowledgment in our Annual Impact Statement'
+      - 'Social media recognition'
 
 partnerGroups:
-  sponsors: "Corporate Sponsors"
-  institutional: "Institutional & Cultural Partners"
-  supporters: "Community Supporters"
+  sponsors: 'Corporate Sponsors'
+  institutional: 'Institutional & Cultural Partners'
+  supporters: 'Community Supporters'
 
 testimonials:
   - quote: "Seeing Instituto Levante's day-to-day work on the beach — watching children read together and share a healthy meal after intense training — gave us absolute confidence to invest."
-    author: "CSR & Sustainability Leadership"
-    role: "Corporate Partner"
-    company: "Guanabara Energy Group"
+    author: 'CSR & Sustainability Leadership'
+    role: 'Corporate Partner'
+    company: 'Guanabara Energy Group'
 
 form:
   title: "Let's Build a High-Impact Partnership"
-  intro: "Please fill out the form below to receive our detailed corporate prospectus or schedule an exploratory meeting with our executive leadership."
+  intro: 'Please fill out the form below to receive our detailed corporate prospectus or schedule an exploratory meeting with our executive leadership.'
